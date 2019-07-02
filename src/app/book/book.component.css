@@ -1,0 +1,30 @@
+.book {
+    float:left;
+    width:150px;
+    height:150px;
+    margin:50px 10px;
+}
+
+.topSpace {
+    margin-top:-15px;
+    margin-bottom:24px;
+}
+
+.book h4 {
+    display:block;
+    font-size:14px;
+    height:12px;
+
+}
+
+.book img {
+    display:block;
+    width:150px;
+    height:150px;
+}
+
+.detailLink {
+    width:150px;
+    height:38px;
+    margin-top:5px;
+}
