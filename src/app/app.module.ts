@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { LibraryComponent } from './library/library.component';
 import { BookComponent } from './book/book.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { BookComponent } from './book/book.component';
   imports: [
     BrowserModule,
       FormsModule,
-      HttpClientModule
+      HttpClientModule,
+      ModalModule.forRoot(),
+      PaginationModule.forRoot()
   ],
   providers: [MainService],
   bootstrap: [AppComponent]

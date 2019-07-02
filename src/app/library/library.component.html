@@ -1,5 +1,8 @@
-<div class="row">
-    <div class="bookWrapper" *ngFor="let book of books">
-        <app-book [bookdata]="book"></app-book>
-    </div>
+<div class="bookWrapper" *ngFor="let book of showBooks">
+    <app-book [bookdata]="book"></app-book>
+</div>
+<div style="clear:both"></div>
+<div class="controls">
+<div class="pageLeft" (click)="moveLeft()" *ngIf="currentStart > 0">&lsaquo;</div>
+<div class="pageRight" (click)="moveRight()" *ngIf="currentStart < maxStart">&rsaquo;</div>
 </div>

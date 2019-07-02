@@ -1,20 +1,22 @@
-<div class="row">
-    <div class="col-xs-12">
-        <h3>Search Form</h3>
+
+        <h4>Search Form</h4>
         <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm.value)">
-            <div class="form-group">
+            <div class="row">
+            <div class="form-group col-md-3">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" [(ngModel)]="params.title" name="title">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-3">
                 <label for="title">Author</label>
                 <input type="text" class="form-control" id="author" [(ngModel)]="params.author" name="author">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-5">
                 <label for="title">Keywords (separate by space)</label>
                 <input type="text" class="form-control" id="keywords" [(ngModel)]="params.keywords" name="keywords">
             </div>
-            <button type="submit" class="btn btn-success">Search</button>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-success searchForm">Search</button>
+                </div>
+            </div>
+
         </form>
-    </div>
-</div>

@@ -1,0 +1,12 @@
+.controls {
+    width:120px;
+    margin:0 auto;
+}
+.pageLeft, .pageRight {
+    float:left;
+    width:40px;
+    font-size:96px;
+    color:#28a745;
+    margin:0 10px;
+    cursor:pointer
+}
