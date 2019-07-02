@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { Book } from '../book';
-
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import {MainService} from '../main.service';
 
 @Component({
   selector: 'app-book',
@@ -10,17 +11,17 @@ import { Book } from '../book';
 export class BookComponent implements OnInit {
 
   @Input() bookdata: Book;
-  public detail;
+  public modalRef: BsModalRef;
 
-  constructor() {
-    this.detail = false;
+  constructor(private modalService: BsModalService) {
+
   }
 
   ngOnInit() {
   }
 
-  showDetail() {
-    this.detail = !this.detail;
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 
 }

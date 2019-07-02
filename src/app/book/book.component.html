@@ -1,35 +1,28 @@
 <div class="book">
     <h4 [ngClass]="{'topSpace': bookdata.TitleName.length > 22 }">{{bookdata.TitleName}}</h4>
     <img src="{{bookdata.CoverArtLink}}">
-    <button type="button" class="detailLink btn btn-success" data-toggle="modal" data-target=".bookDetail">More Info</button>
+    <button type="button" class="detailLink btn btn-success" (click)="openModal(template)">More Info</button>
 </div>
 
-<div class="bookDetail" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <ul>
-                <li>Title: {{bookdata.TitleName}}</li>
-                    <li>Author Bio: {{bookdata.AuthorBio}}</li>
-                    <li>Author Image: {{bookdata.BioPhotoLink}}</li>
-                    <li>Cover Art by Title: {{bookdata.CoverArtLink}}</li>
-                    <li>Hook Line Title: {{bookdata.TitleHookLine}}</li>
-                    <li>Title Description by Title: {{bookdata.TitleDescription}}</li>
-                    <li>Acknowledgements specific to title: {{bookdata.Acknowledgment}}</li>
-                    <li>Dedications specific to title: {{bookdata.Dedication}}</li>
-                    <li>Title URL: {{bookdata.BookUrl}}</li>
-                    <li>Price: {{bookdata.RetailPrice}}</li>
-                 </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{bookdata.TitleName}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-</div>
+    <div class="modal-body">
+        <ul>
+            <li>Author Bio: {{bookdata.AuthorBio}}</li>
+            <li>Author Image: {{bookdata.BioPhotoLink}}</li>
+            <li>Cover Art by Title: {{bookdata.CoverArtLink}}</li>
+            <li>Hook Line Title: {{bookdata.TitleHookLine}}</li>
+            <li>Title Description by Title: {{bookdata.TitleDescription}}</li>
+            <li>Acknowledgements specific to title: {{bookdata.Acknowledgment}}</li>
+            <li>Dedications specific to title: {{bookdata.Dedication}}</li>
+            <li>Title URL: {{bookdata.BookUrl}}</li>
+            <li>Price: {{bookdata.RetailPrice}}</li>
+        </ul>
+    </div>
+</ng-template>
+

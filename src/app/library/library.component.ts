@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { MainService } from '../main.service';
 import { Book } from '../book';
 import { Search } from '../search';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-library',
@@ -11,6 +12,7 @@ import { Search } from '../search';
 })
 export class LibraryComponent implements OnInit {
 
+  public modalRef: BsModalRef;
   public params: Search;
   public books: Book[];
   public showBooks: Book[];
@@ -19,7 +21,7 @@ export class LibraryComponent implements OnInit {
   public totalItems: number;
   public maxStart: number;
 
-  constructor(private mainService: MainService) {
+  constructor(private mainService: MainService, private modalService: BsModalService) {
       this.currentStart = 0;
       this.numPerPage = 6;
       this.params = new Search('', '', [], true);
