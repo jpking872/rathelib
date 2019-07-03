@@ -13,6 +13,9 @@
 <?php
 
 $results = array();
+$title = "";
+$author = "";
+$keywords = "";
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
@@ -91,6 +94,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 
     }
+
+    echo "Title: " . $title . " Author: " . $author . " Keywords: " . $keywords . "<br/>";
 
     if (count($results) == 0) {
         echo "No results";

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Search } from './search';
 import { Book } from './book';
+import { Page } from './page';
 import { Observable } from 'rxjs';
 
 const httpOptions = {
@@ -14,8 +15,10 @@ const httpOptions = {
 export class MainService {
 
   public books: Book[];
+  public page: Page;
 
   constructor(private http: HttpClient) {
+    this.page = new Page(0, 6, 6, 6);
   }
 
     search(params) {
@@ -33,5 +36,16 @@ export class MainService {
 
     getBooks() {
       return this.books;
+    }
+
+    setPage(start, perpage, total) {
+      this.page.currentStart = start;
+      this.page.numPerPage = perpage;
+      this.page.totalItems = total;
+      this.page.maxStart = Math.floor(total / perpage ) * perpage;
+    }
+
+    getPage() {
+      return this.page;
     }
 }

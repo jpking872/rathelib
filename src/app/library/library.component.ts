@@ -24,6 +24,7 @@ export class LibraryComponent implements OnInit {
   public maxStart: number;
 
   constructor(private mainService: MainService, private modalService: BsModalService) {
+
       this.currentStart = 0;
       this.numPerPage = 6;
       this.params = new Search('', '', [], false);
