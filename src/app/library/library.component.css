@@ -23,3 +23,8 @@
     color:#28a745;
     cursor:pointer;
 }
+
+.pagination {
+    width:150px;
+    margin: 0 auto;
+}
