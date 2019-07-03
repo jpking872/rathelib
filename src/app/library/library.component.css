@@ -1,12 +1,25 @@
-.controls {
-    width:120px;
-    margin:0 auto;
+.libraryWrapper {
+    position: relative;
 }
-.pageLeft, .pageRight {
-    float:left;
+
+.pageLeft {
+    position:absolute;
     width:40px;
+    height:40px;
+    top:100px;
+    left:-35px;
     font-size:96px;
     color:#28a745;
-    margin:0 10px;
-    cursor:pointer
+    cursor:pointer;
+}
+
+.pageRight {
+    position:absolute;
+    width:40px;
+    height:40px;
+    top:100px;
+    right:-35px;
+    font-size:96px;
+    color:#28a745;
+    cursor:pointer;
 }

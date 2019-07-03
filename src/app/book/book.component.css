@@ -1,8 +1,11 @@
 .book {
     float:left;
-    width:150px;
-    height:150px;
-    margin:50px 10px;
+    width:166px;
+    margin:50px 8px;
+    padding:20px 5px 5px 5px;
+    background-color:#D3D3D3;
+    border:3px solid #FFFFFF;
+    border-radius:3px
 }
 
 .topSpace {
