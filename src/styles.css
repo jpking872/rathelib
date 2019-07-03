@@ -129,21 +129,6 @@ body{
     border-bottom: 2px solid #ccc;
 }
 
-input[type="text"], input[type="password"], input[type="email"] {
-    height: 32px;
-    padding: 3px 10px;
-    font-size: 13px;
-    border: 1px solid #C7C7C7;
-    color: #231F20;
-    width: 100%;
-    border-radius: 0;
-}
-input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
-    outline: none;
-    border-color: #59D389;
-    /*border-color: #cc2a7b;*/
-}
-
 .alert-danger {
     font-size: 0.9em;
 }
