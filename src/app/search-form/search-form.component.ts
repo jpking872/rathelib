@@ -24,7 +24,6 @@ export class SearchFormComponent implements OnInit {
   onSubmit(search: Search) {
     this.mainService.search(search).subscribe(
         data => {
-          let len = data.length;
           this.mainService.setBooks(data);
         },
         err => {

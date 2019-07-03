@@ -23,10 +23,14 @@ export class MainService {
 
     search(params) {
 
-      return this.http.get('../assets/dummyData.json');
+      if (params.title === '') {
+        return this.http.get('../assets/dummyData.json');
+      } else {
+        return this.http.get('../assets/dummyData2.json');
+      }
 
-      // let url = 'http://local.rathe.com/search.php';
-      // return this.http.post(url, params);
+        // let url = 'http://local.rathe.com/search.php';
+        // return this.http.post(url, params);
 
     }
 
@@ -38,14 +42,5 @@ export class MainService {
       return this.books;
     }
 
-    setPage(start, perpage, total) {
-      this.page.currentStart = start;
-      this.page.numPerPage = perpage;
-      this.page.totalItems = total;
-      this.page.maxStart = Math.floor(total / perpage ) * perpage;
-    }
 
-    getPage() {
-      return this.page;
-    }
 }

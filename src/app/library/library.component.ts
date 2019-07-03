@@ -28,19 +28,8 @@ export class LibraryComponent implements OnInit {
       this.currentStart = 0;
       this.numPerPage = 6;
       this.params = new Search('', '', [], false);
-      this.mainService.search(this.params).subscribe(
-          data => {
-              this.mainService.setBooks(data);
-              this.books = this.mainService.getBooks();
-              this.totalItems = this.books.length;
-              this.maxStart = Math.floor(this.totalItems / this.numPerPage ) * this.numPerPage;
-              this.showBooks = this.books.slice(0, this.numPerPage);
-          },
-          err => {
-              console.log(err);
-          },
-          () => { console.log(); }
-      );
+      this.search(this.params);
+
   }
 
   ngOnInit() {
@@ -58,6 +47,26 @@ export class LibraryComponent implements OnInit {
       this.currentStart += this.numPerPage;
       if (this.currentStart > this.maxStart) { this.currentStart = this.maxStart; }
       this.showBooks = this.books.slice(this.currentStart, this.currentStart + this.numPerPage);
+  }
+
+  search(params) {
+
+      console.log(params);
+
+      this.mainService.search(params).subscribe(
+          data => {
+              this.mainService.setBooks(data);
+              this.books = this.mainService.getBooks();
+              this.currentStart = 0;
+              this.totalItems = this.books.length;
+              this.maxStart = Math.floor(this.totalItems / this.numPerPage ) * this.numPerPage;
+              this.showBooks = this.books.slice(0, this.numPerPage);
+          },
+          err => {
+              console.log(err);
+          },
+          () => { console.log(); }
+      );
   }
 
 }
