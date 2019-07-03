@@ -26,7 +26,7 @@ export class LibraryComponent implements OnInit {
   constructor(private mainService: MainService, private modalService: BsModalService) {
       this.currentStart = 0;
       this.numPerPage = 6;
-      this.params = new Search('', '', [], true);
+      this.params = new Search('', '', [], false);
       this.mainService.search(this.params).subscribe(
           data => {
               this.mainService.setBooks(data);
@@ -34,7 +34,6 @@ export class LibraryComponent implements OnInit {
               this.totalItems = this.books.length;
               this.maxStart = Math.floor(this.totalItems / this.numPerPage ) * this.numPerPage;
               this.showBooks = this.books.slice(0, this.numPerPage);
-              console.log(this.showBooks);
           },
           err => {
               console.log(err);

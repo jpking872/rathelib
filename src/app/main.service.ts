@@ -22,14 +22,13 @@ export class MainService {
 
       return this.http.get('../assets/dummyData.json');
 
-      // let url = "";
+      // let url = 'http://local.rathe.com/search.php';
       // return this.http.post(url, params);
 
     }
 
     setBooks(data) {
       this.books = data;
-      console.log(this.books);
     }
 
     getBooks() {
