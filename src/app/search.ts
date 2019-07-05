@@ -4,6 +4,7 @@ export class Search {
         public author: string,
         public title: string,
         public keywords: string[],
-        public recent: boolean
+        public recent: boolean,
+        public magic: string[]
     ) {}
 }

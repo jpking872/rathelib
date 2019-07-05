@@ -23,16 +23,49 @@ export class LibraryComponent implements OnInit {
   public totalItems: number;
   public maxStart: number;
 
+  dropdownList = [];
+  selectedItems = [];
+  dropdownSettings = {};
+
   constructor(private mainService: MainService, private modalService: BsModalService) {
 
       this.currentStart = 0;
       this.numPerPage = 6;
-      this.params = new Search('', '', [], false);
+      this.params = new Search('', '', [], true, []);
       this.search(this.params);
 
   }
 
   ngOnInit() {
+
+      this.dropdownList = [
+          { item_id: 'adventure', item_text: 'Adventure' },
+          { item_id: 'escape', item_text: 'Escape' },
+          { item_id: 'fantasy', item_text: 'Fantasy' },
+          { item_id: 'fright', item_text: 'Fright' },
+          { item_id: 'fun', item_text: 'Fun' },
+          { item_id: 'history', item_text: 'History' },
+          { item_id: 'hope', item_text: 'Hope' },
+          { item_id: 'inspiration', item_text: 'Inspiration' },
+          { item_id: 'learning', item_text: 'Learning' },
+          { item_id: 'mystery', item_text: 'Mystery' },
+          { item_id: 'passion', item_text: 'Passion' },
+          { item_id: 'romance', item_text: 'Romance' },
+          { item_id: 'soul', item_text: 'Soul' },
+          { item_id: 'surprise', item_text: 'Surprise' },
+          { item_id: 'thrill', item_text: 'Thrill' },
+          { item_id: 'you', item_text: 'You' }
+      ];
+
+      this.dropdownSettings = {
+          singleSelection: false,
+          idField: 'item_id',
+          textField: 'item_text',
+          itemsShowLimit: 20,
+          enableCheckAll: false,
+          allowSearchFilter: false,
+
+      };
 
   }
 
@@ -49,12 +82,13 @@ export class LibraryComponent implements OnInit {
       this.showBooks = this.books.slice(this.currentStart, this.currentStart + this.numPerPage);
   }
 
-  search(params) {
+  search(formData) {
+      formData.magic = this.selectedItems;
+      console.log(formData);
 
-      console.log(params);
-
-      this.mainService.search(params).subscribe(
+      this.mainService.search(formData).subscribe(
           data => {
+              console.log(data);
               this.mainService.setBooks(data);
               this.books = this.mainService.getBooks();
               this.currentStart = 0;

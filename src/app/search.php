@@ -95,12 +95,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     }
 
-    echo "Title: " . $title . " Author: " . $author . " Keywords: " . $keywords . "<br/>";
+    //echo "Title: " . $title . " Author: " . $author . " Keywords: " . $keywords . "<br/>";
 
     if (count($results) == 0) {
         echo "No results";
     } else { ?>
         <pre><?php print_r($results) ?></pre>
+        echo json_encode($results);
     <?php } ?>
 
 

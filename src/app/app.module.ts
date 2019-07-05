@@ -11,6 +11,7 @@ import { LibraryComponent } from './library/library.component';
 import { BookComponent } from './book/book.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
       FormsModule,
       HttpClientModule,
       ModalModule.forRoot(),
-      PaginationModule.forRoot()
+      PaginationModule.forRoot(),
+      NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [MainService],
   bootstrap: [AppComponent]

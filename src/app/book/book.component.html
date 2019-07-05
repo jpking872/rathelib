@@ -1,6 +1,6 @@
 <div class="book">
-    <h4 [ngClass]="{'topSpace': bookdata.TitleName.length > 22 }">{{bookdata.TitleName}}</h4>
-    <img src="{{bookdata.CoverArtLink}}">
+    <h4 [ngClass]="{'topSpace': bookdata.TitleName.length > 23 }">{{bookdata.TitleName}}</h4>
+    <img [src]="bookdata.CoverArtLink == '/generic/cover/image' ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : bookdata.CoverArtLink">
     <button type="button" class="detailLink btn btn-success" (click)="openModal(template)">More Info</button>
 </div>
 
@@ -14,10 +14,10 @@
     </div>
     <div class="modal-body">
         <div class="authorImage">
-            <img src="{{bookdata.CoverArtLink}}" alt="Cover Art Link">
+            <img [src]="bookdata.CoverArtLink == '/generic/cover/image' ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : bookdata.CoverArtLink" alt="Cover Art Link">
             <div style="clear:both"></div>
             <hr>
-            <img src="{{bookdata.BioPhotoLink}}" alt="Author Image">
+            <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : bookdata.BioPhotoLink" alt="Author Image">
             <p class="authorCaption"><strong>{{bookdata.TitlePersona}}</strong></p>
         </div>
         <p><strong>Hook line: </strong>{{bookdata.TitleHookLine}}</p>

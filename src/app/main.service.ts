@@ -23,14 +23,14 @@ export class MainService {
 
     search(params) {
 
-      if (params.title === '') {
+      /*if (params.title === '') {
         return this.http.get('../assets/dummyData.json');
       } else {
         return this.http.get('../assets/dummyData2.json');
-      }
+      }*/
 
-        // let url = 'http://local.rathe.com/search.php';
-        // return this.http.post(url, params);
+      let url = 'https://rathe.app/api/search.php';
+      return this.http.post(url, params);
 
     }
 
