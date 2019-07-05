@@ -5,24 +5,26 @@
 </div>
 
 <ng-template #template>
+    <div class="modal-wrapper">
     <div class="modal-header">
-        <h4 class="modal-title pull-left">{{bookdata.TitleName}}</h4>
+        <p class="modal-title pull-left"><strong>{{bookdata.TitleName}}</strong></p>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
-        <ul>
-            <li>Author Bio: {{bookdata.AuthorBio}}</li>
-            <li>Author Image: {{bookdata.BioPhotoLink}}</li>
-            <li>Cover Art by Title: {{bookdata.CoverArtLink}}</li>
-            <li>Hook Line Title: {{bookdata.TitleHookLine}}</li>
-            <li>Title Description by Title: {{bookdata.TitleDescription}}</li>
-            <li>Acknowledgements specific to title: {{bookdata.Acknowledgment}}</li>
-            <li>Dedications specific to title: {{bookdata.Dedication}}</li>
-            <li>Title URL: {{bookdata.BookUrl}}</li>
-            <li>Price: {{bookdata.RetailPrice}}</li>
-        </ul>
+        <div class="authorImage">
+            <img src="{{bookdata.CoverArtLink}}" alt="Cover Art Link">
+            <div style="clear:both"></div>
+            <hr>
+            <img src="{{bookdata.BioPhotoLink}}" alt="Author Image">
+            <p class="authorCaption"><strong>{{bookdata.TitlePersona}}</strong></p>
+        </div>
+        <p><strong>Hook line: </strong>{{bookdata.TitleHookLine}}</p>
+        <p><strong>Description: </strong>{{bookdata.TitleDescription}}</p>
+        <p><strong>Acknowledgements: </strong>{{bookdata.Acknowledgment}}</p>
+        <p><strong>Dedications: </strong>{{bookdata.Dedication}}</p>
+    </div>
     </div>
 </ng-template>
 

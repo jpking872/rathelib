@@ -3,8 +3,8 @@
     width:166px;
     margin:50px 8px;
     padding:20px 5px 5px 5px;
-    background-color:#D3D3D3;
-    border:3px solid #FFFFFF;
+    background-color:#FAFAFA;
+    border:3px solid #D3D3D3;
     border-radius:3px
 }
 
@@ -24,6 +24,7 @@
     display:block;
     width:150px;
     height:150px;
+    float:left
 }
 
 .detailLink {
@@ -34,4 +35,29 @@
 
 .bookDetail {
 
+}
+
+.modal-wrapper {
+    border:15px solid #D3D3D3;
+    border-radius:5px;
+    background-color:#FAFAFA;
+}
+
+.authorImage {
+    float:right;
+    margin-left:20px
+}
+
+.authorImage img {
+    max-height:150px;
+    max-width:150px;
+    float:right
+}
+
+div.modal-header {
+    padding:15px 1rem 13px 1rem;
+}
+
+p.modal-title {
+    font-size:18px
 }
