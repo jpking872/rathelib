@@ -54,6 +54,9 @@
     float:right
 }
 
+.authorCaption {
+    text-align:right;
+}
 div.modal-header {
     padding:15px 1rem 13px 1rem;
 }
