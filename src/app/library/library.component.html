@@ -1,0 +1,34 @@
+<h4>search...</h4>
+<form #searchForm="ngForm" (ngSubmit)="search(searchForm.value)">
+    <div class="row">
+        <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="title" [(ngModel)]="params.title" name="title"
+                   placeholder="by title">
+        </div>
+        <div class="form-group col-md-3">
+            <input type="text" class="form-control" id="author" [(ngModel)]="params.author" name="author"
+                   placeholder="by author">
+        </div>
+        <div class="form-group col-md-5">
+            <input type="text" class="form-control" id="keywords" [(ngModel)]="params.keywords" name="keywords"
+                   placeholder="by keywords">
+        </div>
+        <div class="col-md-1">
+            <button type="submit" class="btn btn-success searchForm">Search</button>
+        </div>
+    </div>
+</form>
+
+<div class="libraryWrapper">
+
+<div class="bookWrapper" *ngFor="let book of showBooks">
+    <app-book [bookdata]="book"></app-book>
+</div>
+    <div style="clear:both"></div>
+    <div class="pageLeft" (click)="moveLeft()" *ngIf="currentStart > 0">&lsaquo;</div>
+    <div class="pageRight" (click)="moveRight()" *ngIf="currentStart < maxStart">&rsaquo;</div>
+    <div class="pagination">items {{currentStart + 1}} to {{currentStart + numPerPage > totalItems ? totalItems : currentStart + numPerPage}} of {{totalItems}}</div>
+</div>
+
+
+

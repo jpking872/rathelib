@@ -1,0 +1,30 @@
+.libraryWrapper {
+    position: relative;
+}
+
+.pageLeft {
+    position:absolute;
+    width:40px;
+    height:40px;
+    top:100px;
+    left:-35px;
+    font-size:96px;
+    color:#28a745;
+    cursor:pointer;
+}
+
+.pageRight {
+    position:absolute;
+    width:40px;
+    height:40px;
+    top:100px;
+    right:-35px;
+    font-size:96px;
+    color:#28a745;
+    cursor:pointer;
+}
+
+.pagination {
+    width:150px;
+    margin: 0 auto;
+}

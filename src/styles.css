@@ -1,0 +1,142 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+html{
+    position:relative;
+    min-height:100%;
+}
+body{
+    margin-bottom:00px;
+    font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.main-login {
+    background-image: url(assets/images/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh
+}
+
+.logo {
+    width:328px;
+}
+
+.topnav {
+    margin-top: 23px;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.asterik-color {
+    color: #ff6347;
+    font-weight: 480;
+}
+/* ==========================================================================
+   # LOGIN Form
+   ========================================================================== */
+.login-form-panel {
+    background-color: #fff;
+    width: 400px;
+    border: 15px solid #D3D3D3;
+    padding: 50px;
+    margin: 20px;
+}
+
+.login-panel a{
+    font-size:13px;
+}
+
+.panel-heading-no-use{
+    background:none;
+    border-bottom:none;
+    margin-top:10px;
+}
+
+.custom-input {
+    outline: none;
+    margin: 0;
+    border: none;
+    width: 100%;
+    font-size: 15px;
+}
+
+.login-input-group {
+    position: relative;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ccc;
+}
+
+
+.input-login {
+    padding: 9px 0;
+    color: #666;
+}
+
+.btn--login {
+    line-height: 40px;
+    display: inline-block;
+    padding: 0 25px;
+    cursor: pointer;
+    font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+    color: #fff;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    font-size: 14px;
+}
+
+.login-signup-note {
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   # LOGIN Footer
+   ========================================================================== */
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:100px;
+    border-top:solid 3px #ccc;
+    padding-top:20px;
+    background:#ffffff;
+    font-size:13px;
+    margin-top:8px;
+}
+.footer a.footer-text{
+    margin-left:0.8rem;
+}
+
+.copyright{
+    font-weight: 600;
+}
+
+
+/* ==========================================================================
+   # Signup Form
+   ========================================================================== */
+.signup-form-panel {
+    background-color: #fff;
+    width: 585px;
+    border: 15px solid #D3D3D3;
+    padding: 50px;
+    margin: 20px;
+}
+.signup-input-group {
+    position: relative;
+    margin-bottom: 3px;
+    border-bottom: 2px solid #ccc;
+}
+
+.alert-danger {
+    font-size: 0.9em;
+}
+
+.success-message {
+    font-weight: 500;
+}
