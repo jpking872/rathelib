@@ -23,7 +23,7 @@ export class MainService {
 
     search(params) {
 
-      /*if (params.title === '') {
+      /*if (params.keywords === '') {
         return this.http.get('../assets/dummyData.json');
       } else {
         return this.http.get('../assets/dummyData2.json');

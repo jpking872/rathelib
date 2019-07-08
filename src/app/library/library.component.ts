@@ -31,7 +31,7 @@ export class LibraryComponent implements OnInit {
 
       this.currentStart = 0;
       this.numPerPage = 6;
-      this.params = new Search('', '', [], true, []);
+      this.params = new Search('', 'false', []);
       this.search(this.params);
 
   }
@@ -39,28 +39,28 @@ export class LibraryComponent implements OnInit {
   ngOnInit() {
 
       this.dropdownList = [
-          { item_id: 'adventure', item_text: 'Adventure' },
-          { item_id: 'escape', item_text: 'Escape' },
-          { item_id: 'fantasy', item_text: 'Fantasy' },
-          { item_id: 'fright', item_text: 'Fright' },
-          { item_id: 'fun', item_text: 'Fun' },
-          { item_id: 'history', item_text: 'History' },
-          { item_id: 'hope', item_text: 'Hope' },
-          { item_id: 'inspiration', item_text: 'Inspiration' },
-          { item_id: 'learning', item_text: 'Learning' },
-          { item_id: 'mystery', item_text: 'Mystery' },
-          { item_id: 'passion', item_text: 'Passion' },
-          { item_id: 'romance', item_text: 'Romance' },
-          { item_id: 'soul', item_text: 'Soul' },
-          { item_id: 'surprise', item_text: 'Surprise' },
-          { item_id: 'thrill', item_text: 'Thrill' },
-          { item_id: 'you', item_text: 'You' }
+          { item_id: 'adventure' },
+          { item_id: 'escape' },
+          { item_id: 'fantasy' },
+          { item_id: 'fright' },
+          { item_id: 'fun' },
+          { item_id: 'history' },
+          { item_id: 'hope' },
+          { item_id: 'inspiration' },
+          { item_id: 'learning' },
+          { item_id: 'mystery' },
+          { item_id: 'passion' },
+          { item_id: 'romance'},
+          { item_id: 'soul' },
+          { item_id: 'surprise' },
+          { item_id: 'thrill' },
+          { item_id: 'you' }
       ];
 
       this.dropdownSettings = {
           singleSelection: false,
           idField: 'item_id',
-          textField: 'item_text',
+          textField: 'item_id',
           itemsShowLimit: 20,
           enableCheckAll: false,
           allowSearchFilter: false,
