@@ -23,14 +23,21 @@ export class MainService {
 
     search(params) {
 
-      /*if (params.keywords === '') {
-        return this.http.get('../assets/dummyData.json');
-      } else {
-        return this.http.get('../assets/dummyData2.json');
-      }*/
+      // return this.http.get('../assets/dummyData3.json');
+
+      let body = 'recent=' + params.recent + '&keywords=' + params.keywords;
+
+      for (let i = 0; i < params.magic.length; i++) {
+        body += '&magic%5B%5D=' + params.magic[i];
+      }
 
       let url = 'https://rathe.app/api/search.php';
-      return this.http.post(url, params);
+      // let url = 'http://local.hockeyapi.com/search';
+      return this.http.post(url, body,  {
+         headers: new HttpHeaders({
+           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+         })
+       });
 
     }
 

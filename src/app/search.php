@@ -18,7 +18,7 @@ if (!$isTest) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 } else {
-    $con = mysqli_connect("localhost", "testerguy2", "tester", "rathe");
+    $con = mysqli_connect("localhost", "testerguy2", "tester", "rathe2");
     if (mysqli_connect_errno())
     {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $recent = $_POST['recent'] == "true" ? true : false;
         $magic = $_POST['magic'];
     }
+    //var_dump($recent, $keywords, $magic);exit;
     $ids = array();
     if ($recent) {
         $sql = "SELECT * FROM `Bind_Title_Intake` ORDER BY `AddDate` DESC LIMIT 5";
@@ -87,6 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 }
 //echo "Keywords: " . $keywords . " Magic Words: " . $magic . "<br/>";
+//echo json_encode(array('recent' => print_r($recent, true), 'keywords' => print_r($keywords, true), 'magic' => print_r($magic, true)) );
 echo json_encode($results);
 /*
 if (count($results) == 0) {
