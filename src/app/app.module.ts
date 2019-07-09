@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MainService } from './main.service';
 
 import { AppComponent } from './app.component';
-import { SearchFormComponent } from './search-form/search-form.component';
 import { LibraryComponent } from './library/library.component';
 import { BookComponent } from './book/book.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -16,7 +15,6 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [
     AppComponent,
-    SearchFormComponent,
     LibraryComponent,
     BookComponent
   ],
