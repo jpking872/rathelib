@@ -15,7 +15,7 @@ export class SearchFormComponent implements OnInit {
 
   constructor(private mainService: MainService) {
 
-    this.params = new Search('', '', [], false, []);
+    this.params = new Search('', '', []);
   }
 
   ngOnInit() {
