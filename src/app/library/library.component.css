@@ -1,18 +1,36 @@
+.header {
+    position:relative;
+    padding-bottom:12px;
+    border-bottom:1px solid #CCCCCC;
+    margin-bottom:30px;
+}
+.topForm {
+    position:absolute;
+    font-size:18px;
+    top:12px;
+    right:50px;
+}
+.topForm a {
+    margin-right:10px;
+}
 .logo {
-    margin:0 50px
+    margin:0 50px;
 }
 .libraryWrapper {
     position: relative;
-    margin:35px auto;
-    width:1000000px;
+    margin:20px auto;
+    max-width:1104px;
 
 }
 
-.libraryWrapper h2 {
-    margin:12px 0 0 18px;
+.libraryWrapper h4 {
+    margin:0px 0 0 8px;
 }
 
 .pageLeft {
+    position:absolute;
+    top:72px;
+    left:-40px;
     width:40px;
     height:40px;
     font-size:96px;
@@ -21,7 +39,9 @@
 }
 
 .pageRight {
-    margin-left:40px;
+    position:absolute;
+    top:72px;
+    right:-35px;
     width:40px;
     height:40px;
     font-size:96px;
@@ -54,6 +74,7 @@
     width:200px;
     border-radius:0;
     margin-right:16px;
+    background-color:#FFFFFF;
 }
 
 .searchForm {

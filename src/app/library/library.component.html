@@ -1,34 +1,44 @@
-    <div class="row">
-        <div class="col-md-4">
-            <a class="navbar-brand topnav" href="/"><img class="logo" src="../assets/images/logo.png" alt="rAthe Logo"></a>
-        </div>
-        <div class="form-group col-md-8 search">
-            <span class="searchLabel">search...</span>
-                <input type="text" class="form-control" id="keywords" [(ngModel)]="params.keywords" name="keywords"
-                       placeholder="by Title, author, or keywords">
-            <ng-multiselect-dropdown class="magicWordsDropdown"
-                                     [placeholder]="'select magic words'"
-                                     [data]="dropdownList"
-                                     [settings]="dropdownSettings"
-                                     [(ngModel)] ="selectedItems"
-            >
-            </ng-multiselect-dropdown>
-            <button type="button" (click)="search(params)" class="btn btn-success searchForm">Search</button>
-            <!--a class="nav-link" href="login.php"><button type="button" class="btn btn-primary">Log in</button></a>
-            <a class="nav-link" href="signup.php"><button type="button" class="btn btn-danger">Sign up</button></a-->
+<div class="row header">
+    <div class="topForm"><a href="login.php">&#9656;Log in</a><a href="signup.php">&#9656;Sign up</a></div>
+    <div class="col-md-4">
+        <a class="navbar-brand topnav" href="/"><img class="logo" src="../assets/images/logo.png" alt="rAthe Logo"></a>
+    </div>
+    <div class="form-group col-md-8 search">
+        <span class="searchLabel">search...</span>
+        <input type="text" class="form-control" id="keywords" [(ngModel)]="params.keywords" name="keywords"
+               placeholder="by Title, author, or keywords" (keyup.enter)="search(params)">
+        <ng-multiselect-dropdown class="magicWordsDropdown"
+                                 [placeholder]="'select magic words'"
+                                 [data]="dropdownList"
+                                 [settings]="dropdownSettings"
+                                 [(ngModel)]="selectedItems"
+        >
+        </ng-multiselect-dropdown>
+        <button type="button" (click)="search(params)" class="btn btn-success searchForm">Search</button>
+        <!--a class="nav-link" href="login.php"><button type="button" class="btn btn-primary">Log in</button></a>
+        <a class="nav-link" href="signup.php"><button type="button" class="btn btn-danger">Sign up</button></a-->
+    </div>
+</div>
+<div class="container">
+    <div class="libraryWrapper">
+        <h4>New and Featured Releases</h4>
+        <div class="bookWrapper" *ngFor="let book of featuredBooks">
+            <app-book [bookdata]="book"></app-book>
         </div>
     </div>
-
-    <h2>Library</h2>
-<div class="libraryWrapper" [@leftRight]="isLeft ? 'left' : 'right'">
-<div class="bookWrapper" *ngFor="let book of books">
-    <app-book [bookdata]="book"></app-book>
-</div>
-</div>
     <div style="clear:both"></div>
-    <div class="pageLeft" (click)="moveLeft()" *ngIf="currentStart > 0 || 1"><img src="../assets/images/arrowLeft.png" alt="Left arrow"></div>
-    <div class="pageRight" (click)="moveRight()" *ngIf="currentStart < maxStart || 1"><img src="../assets/images/arrowRight.png" alt="right arrow"></div>
-    <div class="pagination">items {{currentStart + 1}} to {{currentStart + numPerPage > totalItems ? totalItems : currentStart + numPerPage}} of {{totalItems}}</div>
+    <div class="libraryWrapper">
+        <h4>The Library</h4>
+        <div class="bookWrapper" *ngFor="let book of showBooks">
+            <app-book [bookdata]="book"></app-book>
+        </div>
+        <div class="pageLeft" (click)="moveLeft()" *ngIf="currentStart > 0"><img src="../assets/images/arrowLeft.png"
+                                                                                 alt="Left arrow"></div>
+        <div class="pageRight" (click)="moveRight()" *ngIf="currentStart < maxStart"><img
+                src="../assets/images/arrowRight.png" alt="right arrow"></div>
+    </div>
+    <!--div class="pagination">items {{currentStart + 1}} to {{currentStart + numPerPage > totalItems ? totalItems : currentStart + numPerPage}} of {{totalItems}}</div-->
+</div>
 
 
 
