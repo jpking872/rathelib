@@ -1,9 +1,10 @@
 <div class="row header">
-    <div class="topForm"><a href="login.php">&#9656;Log in</a><a href="signup.php">&#9656;Sign up</a></div>
-    <div class="col-md-4">
+
+    <div class="col-md-3">
         <a class="navbar-brand topnav" href="/"><img class="logo" src="../assets/images/logo.png" alt="rAthe Logo"></a>
     </div>
-    <div class="form-group col-md-8 search">
+    <div class="col-md-6">
+        <div class="search">
         <span class="searchLabel">search...</span>
         <input type="text" class="form-control" id="keywords" [(ngModel)]="params.keywords" name="keywords"
                placeholder="by Title, author, or keywords" (keyup.enter)="search(params)">
@@ -15,9 +16,14 @@
         >
         </ng-multiselect-dropdown>
         <button type="button" (click)="search(params)" class="btn btn-success searchForm">Search</button>
-        <!--a class="nav-link" href="login.php"><button type="button" class="btn btn-primary">Log in</button></a>
-        <a class="nav-link" href="signup.php"><button type="button" class="btn btn-danger">Sign up</button></a-->
+        </div>
     </div>
+        <div class="col-md-3">
+            <div class="topForm"><a href="login.php">&#9656;Log in</a><a href="signup.php">&#9656;Sign up</a></div>
+        </div>
+
+
+
 </div>
 <div class="container">
     <div class="libraryWrapper">

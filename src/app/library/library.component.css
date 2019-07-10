@@ -1,14 +1,14 @@
 .header {
     position:relative;
-    padding-bottom:12px;
+    padding-bottom:20px;
     border-bottom:1px solid #CCCCCC;
     margin-bottom:30px;
 }
 .topForm {
-    position:absolute;
+    float:right;
     font-size:18px;
-    top:12px;
-    right:50px;
+    margin-top:6px;
+    margin-right:50px
 }
 .topForm a {
     margin-right:10px;
@@ -63,7 +63,7 @@
 
 #keywords {
     float:left;
-    width:350px;
+    width:300px;
     height:35px;
     border-radius:0;
     margin-right:16px;
@@ -83,5 +83,7 @@
 }
 
 .search {
-    margin-top:64px;
+    padding-left:50px;
+    margin:57px auto 0 auto;
+    width:745px;
 }

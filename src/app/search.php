@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     //var_dump($recent, $keywords, $magic);exit;
     $ids = array();
     if ($recent) {
-        $sql = "SELECT * FROM `Bind_Title_Intake` ORDER BY `AddDate` DESC LIMIT 5";
+        $sql = "SELECT * FROM `Bind_Title_Intake` ORDER BY `AddDate` DESC LIMIT 3";
         $result = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_array($result)) {
             $results[] = $row;
