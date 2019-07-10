@@ -1,30 +1,27 @@
-
     <div class="row">
-        <div class="col-md-4 searchLabel"><h4>search...</h4></div>
-        <div class="form-group col-md-4">
-            <input type="text" class="form-control" id="keywords" [(ngModel)]="params.keywords" name="keywords"
-                   placeholder="by keywords">
+        <div class="col-md-4">
+            <a class="navbar-brand topnav" href="/"><img class="logo" src="../assets/images/logo.png" alt="rAthe Logo"></a>
         </div>
-        <input type="hidden" name="recent" value="false" [(ngModel)]="params.recent">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-8 search">
+            <span class="searchLabel">search...</span>
+                <input type="text" class="form-control" id="keywords" [(ngModel)]="params.keywords" name="keywords"
+                       placeholder="by Title, author, or keywords">
             <ng-multiselect-dropdown class="magicWordsDropdown"
-                    [placeholder]="'select magic words'"
-                    [data]="dropdownList"
-                    [settings]="dropdownSettings"
-                    [(ngModel)] ="selectedItems"
+                                     [placeholder]="'select magic words'"
+                                     [data]="dropdownList"
+                                     [settings]="dropdownSettings"
+                                     [(ngModel)] ="selectedItems"
             >
             </ng-multiselect-dropdown>
-        </div>
-        <div class="col-md-1">
             <button type="button" (click)="search(params)" class="btn btn-success searchForm">Search</button>
+            <!--a class="nav-link" href="login.php"><button type="button" class="btn btn-primary">Log in</button></a>
+            <a class="nav-link" href="signup.php"><button type="button" class="btn btn-danger">Sign up</button></a-->
         </div>
     </div>
 
 
-
-
 <div class="libraryWrapper">
-
+<h2>Library</h2>
 <div class="bookWrapper" *ngFor="let book of showBooks">
     <app-book [bookdata]="book"></app-book>
 </div>

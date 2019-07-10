@@ -1,12 +1,21 @@
+.logo {
+    margin:0 50px
+}
 .libraryWrapper {
     position: relative;
+    margin:35px auto;
+    max-width:1104px;
+}
+
+.libraryWrapper h2 {
+    margin:12px 0 0 18px;
 }
 
 .pageLeft {
     position:absolute;
     width:40px;
     height:40px;
-    top:84px;
+    top:95px;
     left:-45px;
     font-size:96px;
     color:#28a745;
@@ -17,7 +26,7 @@
     position:absolute;
     width:40px;
     height:40px;
-    top:84px;
+    top:95px;
     right:-35px;
     font-size:96px;
     color:#28a745;
@@ -31,5 +40,31 @@
 
 .searchLabel {
     margin-top:8px;
-    text-align:right;
+    float:left;
+    font-size:18px;
+    margin-right:16px;
+}
+
+#keywords {
+    float:left;
+    width:350px;
+    height:35px;
+    border-radius:0;
+    margin-right:16px;
+}
+
+.magicWordsDropdown {
+    float:left;
+    width:200px;
+    border-radius:0;
+    margin-right:16px;
+}
+
+.searchForm {
+    padding-top:4px;
+    height:35px;
+}
+
+.search {
+    margin-top:64px;
 }

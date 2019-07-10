@@ -14,16 +14,16 @@
     </div>
     <div class="modal-body">
         <div class="authorImage">
-            <img [src]="bookdata.CoverArtLink == '/generic/cover/image' ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : bookdata.CoverArtLink" alt="Cover Art Link">
-            <div style="clear:both"></div>
-            <hr>
             <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : bookdata.BioPhotoLink" alt="Author Image">
             <p class="authorCaption"><strong>{{bookdata.TitlePersona}}</strong></p>
+            <div style="clear:both"></div>
+
         </div>
-        <p><strong>Hook line: </strong>{{bookdata.TitleHookLine}}</p>
+        <p><strong>Author Bio: </strong>{{bookdata.AuthorBio}}</p>
+        <p><strong>Hook line: </strong>{{bookdata.TitleDescription}}</p>
+        <p><strong>Acknowledgement: </strong>{{bookdata.Acknowledgment}}</p>
+        <p><strong>Dedication: </strong>{{bookdata.Dedication}}</p>
         <p><strong>Description: </strong>{{bookdata.TitleDescription}}</p>
-        <p><strong>Acknowledgements: </strong>{{bookdata.Acknowledgment}}</p>
-        <p><strong>Dedications: </strong>{{bookdata.Dedication}}</p>
     </div>
     </div>
 </ng-template>
