@@ -41,6 +41,7 @@
     border:15px solid #D3D3D3;
     border-radius:5px;
     background-color:#FAFAFA;
+    max-height:calc(100vh - 56px);
 }
 
 .authorImage {
@@ -63,4 +64,13 @@ div.modal-header {
 
 p.modal-title {
     font-size:18px
+}
+
+.expand {
+    color:#28a745;
+    cursor:pointer;
+}
+
+.underline {
+    text-decoration:underline;
 }

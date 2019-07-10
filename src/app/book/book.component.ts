@@ -12,6 +12,7 @@ export class BookComponent implements OnInit {
 
   @Input() bookdata: Book;
   public modalRef: BsModalRef;
+  public showbio: boolean = false;
 
   constructor(private modalService: BsModalService) {
 

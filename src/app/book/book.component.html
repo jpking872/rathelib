@@ -19,7 +19,8 @@
             <div style="clear:both"></div>
 
         </div>
-        <p><strong>Author Bio: </strong>{{bookdata.AuthorBio}}</p>
+        <p *ngIf="!showbio"><strong>Author Bio: </strong>{{bookdata.AuthorBio.substring(0, 50)}}... <span class="expand" (click)="showbio = true">&raquo;<span class="underline">more</span></span></p>
+        <p *ngIf="showbio"><strong>Author Bio: </strong>{{bookdata.AuthorBio}} <span *ngIf="showbio" class="expand" (click)="showbio = false">&raquo;<span class="underline">less</span></span></p>
         <p><strong>Hook line: </strong>{{bookdata.TitleDescription}}</p>
         <p><strong>Acknowledgement: </strong>{{bookdata.Acknowledgment}}</p>
         <p><strong>Dedication: </strong>{{bookdata.Dedication}}</p>
