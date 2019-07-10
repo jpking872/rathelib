@@ -19,18 +19,17 @@
         </div>
     </div>
 
-
-<div class="libraryWrapper">
-<h2>Library</h2>
-<div class="bookWrapper" *ngFor="let book of showBooks">
+    <h2>Library</h2>
+<div class="libraryWrapper" [@leftRight]="isLeft ? 'left' : 'right'">
+<div class="bookWrapper" *ngFor="let book of books">
     <app-book [bookdata]="book"></app-book>
 </div>
+</div>
     <div style="clear:both"></div>
-    <div class="pageLeft" (click)="moveLeft()" *ngIf="currentStart > 0"><img src="../assets/images/arrowLeft.png" alt="Left arrow"></div>
-    <div class="pageRight" (click)="moveRight()" *ngIf="currentStart < maxStart"><img src="../assets/images/arrowRight.png" alt="right arrow"></div>
+    <div class="pageLeft" (click)="moveLeft()" *ngIf="currentStart > 0 || 1"><img src="../assets/images/arrowLeft.png" alt="Left arrow"></div>
+    <div class="pageRight" (click)="moveRight()" *ngIf="currentStart < maxStart || 1"><img src="../assets/images/arrowRight.png" alt="right arrow"></div>
     <div class="pagination">items {{currentStart + 1}} to {{currentStart + numPerPage > totalItems ? totalItems : currentStart + numPerPage}} of {{totalItems}}</div>
 
-</div>
 
 
 

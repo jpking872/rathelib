@@ -4,7 +4,8 @@
 .libraryWrapper {
     position: relative;
     margin:35px auto;
-    max-width:1104px;
+    width:1000000px;
+
 }
 
 .libraryWrapper h2 {
@@ -12,22 +13,17 @@
 }
 
 .pageLeft {
-    position:absolute;
     width:40px;
     height:40px;
-    top:95px;
-    left:-45px;
     font-size:96px;
     color:#28a745;
     cursor:pointer;
 }
 
 .pageRight {
-    position:absolute;
+    margin-left:40px;
     width:40px;
     height:40px;
-    top:95px;
-    right:-35px;
     font-size:96px;
     color:#28a745;
     cursor:pointer;

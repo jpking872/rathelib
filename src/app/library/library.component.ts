@@ -10,7 +10,21 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 @Component({
   selector: 'app-library',
   templateUrl: './library.component.html',
-  styleUrls: ['./library.component.css']
+  styleUrls: ['./library.component.css'],
+    animations: [
+        trigger('leftRight', [
+            // ...
+            state('left', style({
+                left: '{{leftPos}}px'
+            }), { params: {leftPos: '0'}}),
+            state('right', style({
+                left: '{{leftPos}}px'
+            }), { params: {leftPos: '0'}}),
+            transition('left <=> right', [
+                animate('0.5s')
+            ]),
+        ]),
+    ]
 })
 export class LibraryComponent implements OnInit {
 
@@ -22,6 +36,9 @@ export class LibraryComponent implements OnInit {
   public numPerPage: number;
   public totalItems: number;
   public maxStart: number;
+
+  public isLeft: boolean = true;
+  public leftPos: number = 0;
 
   dropdownList = [];
   selectedItems = [];
@@ -73,6 +90,8 @@ export class LibraryComponent implements OnInit {
     this.currentStart -= this.numPerPage;
     if (this.currentStart < 0) { this.currentStart = 0; }
     this.showBooks = this.books.slice(this.currentStart, this.currentStart + this.numPerPage);
+    this.leftPos += 100;
+    this.isLeft = true;
 
   }
 
@@ -80,6 +99,8 @@ export class LibraryComponent implements OnInit {
       this.currentStart += this.numPerPage;
       if (this.currentStart > this.maxStart) { this.currentStart = this.maxStart; }
       this.showBooks = this.books.slice(this.currentStart, this.currentStart + this.numPerPage);
+      this.leftPos -= 100;
+      this.isLeft = false;
   }
 
   search(formData) {
