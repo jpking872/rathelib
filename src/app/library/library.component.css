@@ -9,10 +9,10 @@
     top:6px;
     right:50px;
     font-size:18px;
+    z-index: 101;
 }
 .topForm a {
     margin-right:10px;
-    color:#1D77D8;
 }
 .logo {
     margin:0 50px;
@@ -85,7 +85,7 @@
 
 .search {
     padding-left:50px;
-    margin:57px auto 0 auto;
+    margin:60px auto 0 auto;
 }
 
 
