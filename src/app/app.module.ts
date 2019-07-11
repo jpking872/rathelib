@@ -11,6 +11,7 @@ import { BookComponent } from './book/book.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
       HttpClientModule,
       ModalModule.forRoot(),
       PaginationModule.forRoot(),
-      NgMultiSelectDropDownModule.forRoot()
+      NgMultiSelectDropDownModule.forRoot(),
+      ScrollingModule
   ],
   providers: [MainService],
   bootstrap: [AppComponent]

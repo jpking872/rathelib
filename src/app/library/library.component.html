@@ -1,6 +1,7 @@
 <div class="row header">
+    <div class="topForm"><a href="https://rathe.app/portal/public/login.php">&#9656;Log in</a><a href="https://rathe.app/portal/public/signup.php">&#9656;Sign up</a></div>
 
-    <div class="col-md-3">
+    <div class="col-md-4">
         <a class="navbar-brand topnav" href="/"><img class="logo" src="../assets/images/logo.png" alt="rAthe Logo"></a>
     </div>
     <div class="col-md-6">
@@ -18,11 +19,6 @@
         <button type="button" (click)="search(params)" class="btn btn-success searchForm">Search</button>
         </div>
     </div>
-        <div class="col-md-3">
-            <div class="topForm"><a href="https://rathe.app/portal/public/login.php">&#9656;Log in</a><a href="https://rathe.app/portal/public/signup.php">&#9656;Sign up</a></div>
-        </div>
-
-
 
 </div>
 <div class="container">
@@ -35,14 +31,22 @@
     <div style="clear:both"></div>
     <div class="libraryWrapper">
         <h4>The Library</h4>
+        <!--ul class="list">
+            <cdk-virtual-scroll-viewport  style="height: 500px" itemSize="90" >
+                <ng-container *cdkVirtualFor="let book of books">
+                    <li>  </li>
+                </ng-container>
+            </cdk-virtual-scroll-viewport>
+        </ul-->
         <div class="bookWrapper" *ngFor="let book of showBooks">
             <app-book [bookdata]="book"></app-book>
         </div>
-        <div class="pageLeft" (click)="moveLeft()" *ngIf="currentStart > 0"><img src="../assets/images/arrowLeft.png"
+        <div class="pageLeft" (click)="moveLeft()" *ngIf="currentStart > 0 || 1"><img src="../assets/images/arrowLeft.png"
                                                                                  alt="Left arrow"></div>
-        <div class="pageRight" (click)="moveRight()" *ngIf="currentStart < maxStart"><img
+        <div class="pageRight" (click)="moveRight()" *ngIf="currentStart < maxStart || 1"><img
                 src="../assets/images/arrowRight.png" alt="right arrow"></div>
     </div>
+
     <!--div class="pagination">items {{currentStart + 1}} to {{currentStart + numPerPage > totalItems ? totalItems : currentStart + numPerPage}} of {{totalItems}}</div-->
 </div>
 

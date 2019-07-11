@@ -5,10 +5,10 @@
     margin-bottom:30px;
 }
 .topForm {
-    float:right;
+    position:absolute;
+    top:6px;
+    right:50px;
     font-size:18px;
-    margin-top:6px;
-    margin-right:50px
 }
 .topForm a {
     margin-right:10px;
@@ -30,7 +30,7 @@
 
 .pageLeft {
     position:absolute;
-    top:72px;
+    top:10px;
     left:-40px;
     width:40px;
     height:40px;
@@ -41,7 +41,7 @@
 
 .pageRight {
     position:absolute;
-    top:72px;
+    top:10px;
     right:-35px;
     width:40px;
     height:40px;
@@ -87,4 +87,27 @@
     padding-left:50px;
     margin:57px auto 0 auto;
     width:745px;
+}
+
+
+ul {
+    max-width: 500px;
+    color: #333;
+    list-style: none;
+    margin: 50px auto;
+    padding: 10px;
+}
+
+.list li {
+    padding: 25px;
+    background: #FAFAAF;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.center {
+    text-align: center;
 }

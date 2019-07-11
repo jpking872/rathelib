@@ -4,7 +4,6 @@ import { MainService } from '../main.service';
 import { Book } from '../book';
 import { Search } from '../search';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-//import * as $ from 'jquery';
 
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
@@ -25,6 +24,8 @@ export class LibraryComponent implements OnInit {
   public numPerPage: number;
   public totalItems: number;
   public maxStart: number;
+  public newPos: number;
+  public animate: string;
 
   dropdownList = [];
   selectedItems = [];
@@ -78,16 +79,18 @@ export class LibraryComponent implements OnInit {
     if (this.currentStart < 0) { this.currentStart = 0; }
     this.showBooks = this.books.slice(this.currentStart, this.currentStart + this.numPerPage);
 
+
   }
 
   moveRight() {
       this.currentStart += this.numPerPage;
       if (this.currentStart > this.maxStart) { this.currentStart = this.maxStart; }
       this.showBooks = this.books.slice(this.currentStart, this.currentStart + this.numPerPage);
+
   }
 
   getNewBooks() {
-      let params = new Search('', 'true', []);
+      const params = new Search('', 'true', []);
 
       this.mainService.search(params).subscribe(
           data => {
