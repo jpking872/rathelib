@@ -64,7 +64,7 @@
 
 #keywords {
     float:left;
-    width:300px;
+    width:250px;
     height:35px;
     border-radius:0;
     margin-right:16px;
@@ -86,7 +86,6 @@
 .search {
     padding-left:50px;
     margin:57px auto 0 auto;
-    width:745px;
 }
 
 
