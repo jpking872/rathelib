@@ -39,7 +39,7 @@
                         <app-book [bookdata]="book"></app-book>
                 </div>
             </cdk-virtual-scroll-viewport-->
-        <div class="bookWrapper" *ngFor="let book of books">
+        <div class="bookWrapper" *ngFor="let book of books; let i = index">
             <app-book [bookdata]="book"></app-book>
         </div>
     </div>

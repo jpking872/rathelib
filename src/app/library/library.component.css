@@ -35,8 +35,8 @@
 }
 
 .upArrow {
-    margin-top:-4px;
-    margin-left:-5px;
+    margin-top: -5px;
+    margin-left:-9px;
     z-index: 200;
     cursor:pointer;
 }
@@ -95,6 +95,8 @@
     margin-top:-4px;
     padding-top:4px;
     height:35px;
+    background-color:#1D76d8;
+    border-color:#1D76d8;
 }
 
 .search {

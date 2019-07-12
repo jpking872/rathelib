@@ -1,7 +1,7 @@
 <div class="book">
-    <h4 [ngClass]="{'topSpace': bookdata.TitleName.length > 23 }">{{bookdata.TitleName}}</h4>
+    <h4 [ngClass]="{'topSpace': bookdata.TitleName.length > 100 }">{{bookdata.TitleName}}</h4>
     <img [src]="bookdata.CoverArtLink == '/generic/cover/image' ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : bookdata.CoverArtLink">
-    <button type="button" class="detailLink btn btn-success" (click)="openModal(template)">More Info</button>
+    <button type="button" class="detailLink btn btn-success" (click)="openModal(template)">read more</button>
 </div>
 
 <ng-template #template>
