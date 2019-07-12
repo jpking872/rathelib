@@ -24,8 +24,8 @@ export class LibraryComponent implements OnInit {
   public numPerPage: number;
   public totalItems: number;
   public maxStart: number;
-  public newPos: number;
-  public animate: string;
+
+  public scrollPosition: number;
 
   dropdownList = [];
   selectedItems = [];
@@ -35,6 +35,7 @@ export class LibraryComponent implements OnInit {
 
       this.currentStart = 0;
       this.numPerPage = 6;
+      this.scrollPosition = 0;
       this.params = new Search('', 'false', []);
       this.getNewBooks();
       this.search(this.params);
@@ -72,6 +73,9 @@ export class LibraryComponent implements OnInit {
 
       };
 
+      this.scrollPosition = 0;
+      this.windowHeight = window.innerHeight - 117;
+
   }
 
   moveLeft() {
@@ -104,19 +108,47 @@ export class LibraryComponent implements OnInit {
       );
   }
 
+  scrollPage(dir) {
+
+      const box: any = document.querySelector('.scrollingBox');
+
+      const scrollAmount = window.innerHeight - 120;
+
+      if (dir == 'down') {
+          this.scrollPosition += scrollAmount;
+      } else if (dir == 'up') {
+          this.scrollPosition -= scrollAmount;
+      }
+
+      box.scroll(0, this.scrollPosition);
+
+
+
+  }
+
   search(formData) {
       formData.magic = this.selectedItems;
       console.log(formData);
 
       this.mainService.search(formData).subscribe(
           data => {
+
               console.log(data);
-              this.mainService.setBooks(data);
+
+              const bigBook = [];
+              for (let i = 0; i < 100; i++) {
+                  for (let j = 0; j < data.length; j++) {
+                      bigBook.push(data[j]);
+                  }
+              }
+
+              this.mainService.setBooks(bigBook);
               this.books = this.mainService.getBooks();
-              this.currentStart = 0;
+
+              /*this.currentStart = 0;
               this.totalItems = this.books.length;
               this.maxStart = Math.floor(this.totalItems / this.numPerPage ) * this.numPerPage;
-              this.showBooks = this.books.slice(0, this.numPerPage);
+              this.showBooks = this.books.slice(0, this.numPerPage);*/
           },
           err => {
               console.log(err);

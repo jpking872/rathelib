@@ -1,12 +1,12 @@
 .header {
     position:relative;
-    padding-bottom:20px;
+    padding-bottom:12px;
     border-bottom:1px solid #CCCCCC;
-    margin-bottom:30px;
+    margin-bottom:20px;
 }
 .topForm {
     position:absolute;
-    top:6px;
+    top:53px;
     right:50px;
     font-size:18px;
     z-index: 101;
@@ -17,15 +17,28 @@
 .logo {
     margin:0 50px;
 }
-.libraryWrapper {
+.libraryWrapper, .recentWrapper {
     position: relative;
     margin:20px auto;
-    max-width:1104px;
+    max-width:1115px;
 
 }
 
-.libraryWrapper h4 {
+.libraryWrapper h4, .recentWrapper h4 {
     margin:0px 0 0 8px;
+}
+
+.downArrow {
+    margin-left:10px;
+    z-index: 200;
+    cursor: pointer;
+}
+
+.upArrow {
+    margin-top:-4px;
+    margin-left:-5px;
+    z-index: 200;
+    cursor:pointer;
 }
 
 .pageLeft {
@@ -79,13 +92,14 @@
 }
 
 .searchForm {
+    margin-top:-4px;
     padding-top:4px;
     height:35px;
 }
 
 .search {
     padding-left:50px;
-    margin:60px auto 0 auto;
+    margin:45px auto 0 auto;
 }
 
 
@@ -109,4 +123,10 @@ ul {
 
 .center {
     text-align: center;
+}
+
+.scrollingBox {
+    overflow-y:scroll;
+    max-width:100%;
+    height:calc(100vh - 120px);
 }
