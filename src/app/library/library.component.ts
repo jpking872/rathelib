@@ -73,9 +73,6 @@ export class LibraryComponent implements OnInit {
 
       };
 
-      this.scrollPosition = 0;
-      this.windowHeight = window.innerHeight - 117;
-
   }
 
   moveLeft() {

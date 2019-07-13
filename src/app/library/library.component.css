@@ -26,6 +26,7 @@
 
 .libraryWrapper h4, .recentWrapper h4 {
     margin:0px 0 0 8px;
+    color:#144678;
 }
 
 .downArrow {
@@ -69,10 +70,11 @@
 }
 
 .searchLabel {
-    margin-top:8px;
-    float:left;
+    margin-top:7px;
     font-size:18px;
+    float:left;
     margin-right:16px;
+    color:#144678;
 }
 
 #keywords {
@@ -86,9 +88,11 @@
 .magicWordsDropdown {
     float:left;
     width:200px;
-    border-radius:0;
     margin-right:16px;
     background-color:#FFFFFF;
+    color:#495057 !important;
+    border-radius:0 !important;
+    border:1px solid #ced4da !important;
 }
 
 .searchForm {
