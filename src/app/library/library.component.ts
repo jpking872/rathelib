@@ -18,7 +18,7 @@ declare var $: any;
 
 export class LibraryComponent implements OnInit {
 
-  @ViewChild(NgScrollbar, {static:  true}) scrollRef: NgScrollbar;
+  @ViewChild(NgScrollbar, {static: false}) scrollRef: NgScrollbar;
 
   public modalRef: BsModalRef;
   public params: Search;
@@ -141,7 +141,7 @@ export class LibraryComponent implements OnInit {
               console.log(data);
 
               const bigBook = [];
-              for (let i = 0; i < 50; i++) {
+              for (let i = 0; i < 25; i++) {
                   for (let j = 0; j < data.length; j++) {
                       bigBook.push(data[j]);
                   }
