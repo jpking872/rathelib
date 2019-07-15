@@ -11,7 +11,7 @@
     font-size:18px;
 }
 .topForm a {
-    margin-right:10px;
+    margin-right:7px;
 }
 
 .logo {
@@ -47,16 +47,18 @@
 
 .downArrow {
     position:fixed;
-    top:0px;
-    right:-20px;
+    top:121px;
+    right:77px;
     cursor:pointer;
+    z-index: 200;
 }
 
 .upArrow {
     position:fixed;
-    top:0px;
-    right:-40px;
+    top:120px;
+    right:47px;
     cursor:pointer;
+    z-index: 200;
 }
 
 
@@ -128,7 +130,8 @@
 
 
 .scrollingBox {
-    overflow-y:scroll;
+    overflow-y:hidden;
     max-width:100%;
     height:calc(100vh - 219px);
 }
+

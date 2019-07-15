@@ -12,6 +12,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
       ModalModule.forRoot(),
       PaginationModule.forRoot(),
       NgMultiSelectDropDownModule.forRoot(),
-      ScrollingModule
+      ScrollingModule,
+      NgScrollbarModule
   ],
   providers: [MainService],
   bootstrap: [AppComponent]

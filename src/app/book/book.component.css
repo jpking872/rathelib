@@ -3,7 +3,7 @@
     width:168px;
     margin:5px 6px;
     padding:20px 7px 5px 7px;
-    background-color:#F9F9F9;
+    background-color:#F6F6F6;
     border:2px solid #CCC;
     border-radius:5px;
 }
@@ -50,9 +50,9 @@
 }
 
 .modal-wrapper {
-    border:15px solid #D3D3D3;
+    border:6px solid #D3D3D3;
     border-radius:5px;
-    background-color:#FAFAFA;
+    background-color:#F6F6F6;
     max-height:calc(100vh - 56px);
     overflow-y:scroll;
 }
@@ -76,11 +76,16 @@ div.modal-header {
 }
 
 p.modal-title {
+    color:#144678;
     font-size:18px
 }
 
+p strong {
+    color:#144678;
+}
+
 .expand {
-    color:#28a745;
+    color:#144678;
     cursor:pointer;
 }
 

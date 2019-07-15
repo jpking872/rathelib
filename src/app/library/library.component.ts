@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MainService } from '../main.service';
 import { Book } from '../book';
 import { Search } from '../search';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { NgScrollbar } from 'ngx-scrollbar';
 
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
@@ -13,9 +14,11 @@ declare var $: any;
   selector: 'app-library',
   templateUrl: './library.component.html',
   styleUrls: ['./library.component.css'],
-
 })
+
 export class LibraryComponent implements OnInit {
+
+  @ViewChild(NgScrollbar, {static:  true}) scrollRef: NgScrollbar;
 
   public modalRef: BsModalRef;
   public params: Search;
@@ -111,19 +114,19 @@ export class LibraryComponent implements OnInit {
 
       const box: any = document.querySelector('.scrollingBox');
 
-      const scrollAmount = window.innerHeight - 120;
+      const scrollAmount = window.innerHeight - 219;
 
       let currentPos = box.scrollTop;
-      console.log(currentPos);
 
       if (dir == 'down') {
-          this.scrollPosition = currentPos + scrollAmount;
+          this.scrollPosition += scrollAmount;
       } else if (dir == 'up') {
-          this.scrollPosition = currentPos - scrollAmount;
+          this.scrollPosition -= scrollAmount;
       }
 
-      // box.scroll(0, this.scrollPosition);
+      console.log(currentPos, this.scrollPosition);
 
+      this.scrollRef.scrollYTo(this.scrollPosition, 400).subscribe();
 
 
   }
