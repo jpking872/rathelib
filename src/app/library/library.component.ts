@@ -7,6 +7,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
+declare var $: any;
+
 @Component({
   selector: 'app-library',
   templateUrl: './library.component.html',
@@ -111,13 +113,16 @@ export class LibraryComponent implements OnInit {
 
       const scrollAmount = window.innerHeight - 120;
 
+      let currentPos = box.scrollTop;
+      console.log(currentPos);
+
       if (dir == 'down') {
-          this.scrollPosition += scrollAmount;
+          this.scrollPosition = currentPos + scrollAmount;
       } else if (dir == 'up') {
-          this.scrollPosition -= scrollAmount;
+          this.scrollPosition = currentPos - scrollAmount;
       }
 
-      box.scroll(0, this.scrollPosition);
+      // box.scroll(0, this.scrollPosition);
 
 
 
@@ -133,7 +138,7 @@ export class LibraryComponent implements OnInit {
               console.log(data);
 
               const bigBook = [];
-              for (let i = 0; i < 100; i++) {
+              for (let i = 0; i < 50; i++) {
                   for (let j = 0; j < data.length; j++) {
                       bigBook.push(data[j]);
                   }
