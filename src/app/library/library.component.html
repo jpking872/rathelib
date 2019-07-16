@@ -7,15 +7,16 @@
         <div class="search">
             <span class="searchLabel">search...</span>
             <input type="text" class="form-control" id="keywords" [(ngModel)]="params.keywords" name="keywords"
-                   placeholder="by Title, author, or keywords" (keyup.enter)="search(params)">
+                   placeholder="by Title, author, or keywords" (keyup.enter)="search()" (change)="resetPage()">
             <ng-multiselect-dropdown class="magicWordsDropdown"
                                      [placeholder]="'select magic words'"
                                      [data]="dropdownList"
                                      [settings]="dropdownSettings"
                                      [(ngModel)]="selectedItems"
+                                     (onSelect)="resetPage()"
             >
             </ng-multiselect-dropdown>
-            <button type="button" (click)="search(params)" class="btn btn-success searchForm">Search</button>
+            <button type="button" (click)="search()" class="btn btn-success searchForm">Search</button>
             <div class="topForm"><a href="https://rathe.app/portal/public/login.php">&#9656;Log in</a><a
                     href="https://rathe.app/portal/public/signup.php">&#9656;Sign up</a></div>
         </div>
@@ -23,8 +24,8 @@
     <img class="downArrow" src="../assets/images/downArrow.png" (click)="scrollPage('down')" alt="down arrow">
     <img class="upArrow" src="../assets/images/upArrow.png" (click)="scrollPage('up')" alt="up arrow">
 </div>
-<div class="scrollingBox">
-    <ng-scrollbar #scrollRef>
+<div class="scrollingBox" #scrollingBox>
+    <ng-scrollbar #scrollRef class="scroller">
     <div class="container" style="position:relative">
         <div class="recentWrapper">
             <h4>New and Featured Releases</h4>
@@ -34,6 +35,8 @@
         <div class="libraryWrapper">
             <h4>The Library</h4>
             <app-book [bookdata]="book" *ngFor="let book of books"></app-book>
+            <div style="clear:both"></div>
+            <a class="moreResults" [hidden]="!more" href="javascript:void(0)" (click)="getMore()">&#9656;More results</a>
         </div>
     </div>
     </ng-scrollbar>

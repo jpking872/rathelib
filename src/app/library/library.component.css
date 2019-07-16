@@ -135,3 +135,9 @@
     height:calc(100vh - 219px);
 }
 
+.moreResults {
+    float:right;
+    margin-top:25px;
+    margin-right:25px;
+}
+

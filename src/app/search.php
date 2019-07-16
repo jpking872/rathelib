@@ -8,9 +8,9 @@ if (!$isTest) {
         exit;
     }
 
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Credentials: true");
-    header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+    header('Access-Control-Allow-Origin: *');
+    header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+    header('Access-Control-Allow-Methods: GET, POST, PUT');
 
     $con = mysqli_connect("localhost", "test", "test", "test");
     if (mysqli_connect_errno())
@@ -18,7 +18,7 @@ if (!$isTest) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 } else {
-    $con = mysqli_connect("localhost", "testerguy2", "tester", "rathe2");
+    $con = mysqli_connect("localhost", "testerguy2", "tester", "rathe");
     if (mysqli_connect_errno())
     {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -30,8 +30,18 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $keywords = $_POST['keywords'];
         $recent = $_POST['recent'] == "true" ? true : false;
         $magic = $_POST['magic'];
+        $start = $_POST['start'];
+        $size = $_POST['size'];
     }
-    //var_dump($recent, $keywords, $magic);exit;
+
+    $startIndex = $start * $size;
+
+    /*$sql = "SELECT COUNT(*) as numrows FROM `Bind_Title_Intake`";
+    $result = mysqli_query($con, $sql);
+    if ($row = mysqli_fetch_array($result)) {
+        $numrows = $row['numrows'];
+    }*/
+
     $ids = array();
     if ($recent) {
         $sql = "SELECT * FROM `Bind_Title_Intake` ORDER BY `AddDate` DESC LIMIT 3";
@@ -40,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $results[] = $row;
         }
     } elseif (!$magic && !$keywords) {
-        $sql = "SELECT * FROM `Bind_Title_Intake` ORDER BY `AddDate` DESC";
+        $sql = "SELECT * FROM `Bind_Title_Intake` ORDER BY `AddDate` DESC LIMIT " . $startIndex . ", " . $size;
         $result = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_array($result)) {
             $results[] = $row;
@@ -80,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         }
 
         $inArray = "'" . implode("', '", $ids) . "'";
-        $sql = "SELECT * FROM `Bind_Title_Intake` WHERE `ID` IN (" . $inArray . ") ORDER BY `AddDate` DESC";
+        $sql = "SELECT * FROM `Bind_Title_Intake` WHERE `ID` IN (" . $inArray . ") ORDER BY `AddDate` DESC LIMIT " . $startIndex . ", " . $size;
         $result = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_array($result)) {
             $results[] = $row;

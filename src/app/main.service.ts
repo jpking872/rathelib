@@ -25,14 +25,20 @@ export class MainService {
 
       // return this.http.get('../assets/dummyData3.json');
 
-      let body = 'recent=' + params.recent + '&keywords=' + params.keywords;
+      let body = 'recent=' + params.recent + '&keywords=' + params.keywords + '&start=' + params.start + '&size=' + params.size;
 
-      for (let i = 0; i < params.magic.length; i++) {
-        body += '&magic%5B%5D=' + params.magic[i];
+      if (params.magic.length === 0) {
+        body += '&magic=';
+      } else {
+        for (let i = 0; i < params.magic.length; i++) {
+          body += '&magic%5B%5D=' + params.magic[i];
+        }
       }
 
+
+
       let url = 'https://rathe.app/api/search.php';
-      // let url = 'http://local.hockeyapi.com/search';
+      // let url = 'http://local.hockeyapi.com/api/search';
       return this.http.post<Book[]>(url, body,  {
          headers: new HttpHeaders({
            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'

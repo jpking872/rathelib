@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MainService } from '../main.service';
 import { Book } from '../book';
@@ -19,16 +19,19 @@ declare var $: any;
 export class LibraryComponent implements OnInit {
 
   @ViewChild(NgScrollbar, {static: false}) scrollRef: NgScrollbar;
+  @ViewChild('scrollingBox', {static: false}) scrollingBox: ElementRef;
 
   public modalRef: BsModalRef;
   public params: Search;
-  public books: Book[];
+  public books: Book[] = [];
   public showBooks: Book[];
   public featuredBooks: Book[];
   public currentStart: number;
   public numPerPage: number;
   public totalItems: number;
   public maxStart: number;
+  public size: number;
+  public more: boolean = true;
 
   public scrollPosition: number;
 
@@ -41,9 +44,8 @@ export class LibraryComponent implements OnInit {
       this.currentStart = 0;
       this.numPerPage = 6;
       this.scrollPosition = 0;
-      this.params = new Search('', 'false', []);
-      this.getNewBooks();
-      this.search(this.params);
+      this.size = 4;
+      this.params = new Search('', 'false', [], 0, this.size);
 
   }
 
@@ -78,6 +80,9 @@ export class LibraryComponent implements OnInit {
 
       };
 
+      this.getNewBooks();
+      this.search();
+
   }
 
   moveLeft() {
@@ -96,11 +101,10 @@ export class LibraryComponent implements OnInit {
   }
 
   getNewBooks() {
-      const params = new Search('', 'true', []);
+      const params = new Search('', 'true', [], 0, this.size);
 
       this.mainService.search(params).subscribe(
           data => {
-              console.log(data);
               this.featuredBooks = data;
           },
           err => {
@@ -110,17 +114,26 @@ export class LibraryComponent implements OnInit {
       );
   }
 
+  getMore() {
+
+      this.params.start++;
+      this.search();
+
+  }
+
+  resetPage() {
+      this.params.start = 0;
+      this.books = [];
+  }
+
   scrollPage(dir) {
 
-      const box: any = document.querySelector('.scrollingBox');
+      const scrollAmount = 496;
+      const currentPos = this.scrollingBox.nativeElement.offsetTop;
 
-      const scrollAmount = window.innerHeight - 219;
-
-      let currentPos = box.scrollTop;
-
-      if (dir == 'down') {
+      if (dir === 'down') {
           this.scrollPosition += scrollAmount;
-      } else if (dir == 'up') {
+      } else if (dir === 'up') {
           this.scrollPosition -= scrollAmount;
       }
 
@@ -131,23 +144,25 @@ export class LibraryComponent implements OnInit {
 
   }
 
-  search(formData) {
-      formData.magic = this.selectedItems;
-      console.log(formData);
+  search() {
 
-      this.mainService.search(formData).subscribe(
+      console.log(this.params);
+
+      this.params.magic = this.selectedItems;
+      this.mainService.search(this.params).subscribe(
           data => {
 
-              console.log(data);
-
-              const bigBook = [];
-              for (let i = 0; i < 25; i++) {
-                  for (let j = 0; j < data.length; j++) {
-                      bigBook.push(data[j]);
-                  }
+              if (data.length === 0) {
+                  this.more = false;
               }
 
-              this.mainService.setBooks(bigBook);
+              for (let i = 0; i < 10; i++) {
+                  this.books.push(...data);
+              }
+
+              const tmpBooks: Book[] = data;
+              this.books.push(...tmpBooks);
+              this.mainService.setBooks(this.books);
               this.books = this.mainService.getBooks();
 
               /*this.currentStart = 0;
