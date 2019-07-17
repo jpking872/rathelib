@@ -7,7 +7,7 @@
 <a href="javascript:void(0)" (click)="openModal(template)">
 <div class="book">
     <div class="imageWrapper">
-    <img [src]="bookdata.CoverArtLink == '/generic/cover/image' ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : bookdata.CoverArtLink">
+    <img [src]="bookdata.CoverArtLink == '/generic/cover/image' || bookdata.CoverArtLink === null ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : bookdata.CoverArtLink">
     </div>
     <h4 (click)="openModal(template)">{{bookdata.TitleName}}</h4>
     <div style="clear:both"></div>
@@ -24,7 +24,7 @@
     </div>
     <div class="modal-body">
         <div class="authorImage">
-            <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : bookdata.BioPhotoLink" alt="Author Image">
+            <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : bookdata.BioPhotoLink" alt="Author Image">
             <p class="authorCaption"><strong><span [innerHTML]="bookdata.TitlePersona"></span></strong></p>
             <div style="clear:both"></div>
 
