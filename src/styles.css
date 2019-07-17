@@ -1,11 +1,18 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+html{
+
+}
 body{
     margin-bottom:0px;
     font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 14px;
     overflow-y:hidden
+}
+
+::placeholder {
+    color:#AAA;
 }
 
 .main-login {
@@ -90,6 +97,18 @@ body{
 
 .login-signup-note {
     font-weight: 600;
+}
+
+.magicWordsDropdown .multiselect-dropdown {
+    height:30px;
+}
+
+.magicWordsDropdown .multiselect-dropdown .dropdown-btn {
+    color: #495057 !important;
+    padding:4px 12px 3px 12px !important;
+    border-radius: 0 !important;
+    border: 1px solid #ced4da !important;
+    background-color:#FFF;
 }
 
 /* ==========================================================================

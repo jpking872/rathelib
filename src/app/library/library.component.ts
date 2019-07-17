@@ -124,6 +124,7 @@ export class LibraryComponent implements OnInit {
   resetPage() {
       this.params.start = 0;
       this.books = [];
+      this.more = true;
   }
 
   scrollPage(dir) {

@@ -2,16 +2,15 @@
     position:relative;
     padding-bottom:12px;
     border-bottom:1px solid #CCC;
-    margin-bottom:20px;
 }
 .topForm {
     float:left;
-    margin-top:5px;
-    margin-left:12px;
-    font-size:18px;
+    margin-top:6px;
+    margin-left:25px;
+    font-size:15px;
 }
 .topForm a {
-    margin-right:7px;
+    margin-right:15px;
 }
 
 .logo {
@@ -28,6 +27,7 @@
 .libraryWrapper h4, .recentWrapper h4 {
     margin:0px 0 0 8px;
     color:#144678;
+    font-size:20px;
 }
 
 /*.downArrow {
@@ -99,10 +99,11 @@
 
 #keywords {
     float:left;
-    width:250px;
-    height:35px;
+    width:300px;
+    height:30px;
     border-radius:0;
     margin-right:16px;
+    font-size:15px;
 }
 
 .magicWordsDropdown {
@@ -116,23 +117,25 @@
 }
 
 .searchForm {
-    padding-top:4px;
-    height:35px;
+    padding-top:3px;
+    height:30px;
     background-color:#1D76d8;
     border-color:#1D76d8;
     float:left;
+    font-size:15px;
 }
 
 .search {
     padding-left:50px;
-    margin:45px auto 0 auto;
+    margin:50px auto 0 auto;
 }
 
 
 .scrollingBox {
+    padding:20px 0;
     overflow-y:hidden;
     max-width:100%;
-    height:calc(100vh - 219px);
+    height:calc(100vh - 199px);
 }
 
 .moreResults {

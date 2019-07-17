@@ -1,11 +1,8 @@
 .book {
     float:left;
-    width:168px;
-    margin:5px 6px;
-    padding:20px 7px 5px 7px;
-    background-color:#F6F6F6;
-    border:2px solid #CCC;
-    border-radius:5px;
+    width:150px;
+    height:188px;
+    margin:5px 10px;
 }
 
 .topSpace {
@@ -17,14 +14,31 @@
     display:block;
     font-size:14px;
     height:12px;
+    padding:5px;
+    color:#1C62E8;
+    cursor:pointer
 
 }
 
-.book img {
+.book h4:hover {
+    text-decoration:underline;
+}
+
+.book .imageWrapper {
+    position:relative;
     display:block;
     width:150px;
     height:150px;
-    float:left
+    background-color: #FAFAFA;
+}
+
+.book img {
+    position:absolute;
+    top:50%;
+    left:50%;
+    display:block;
+    transform: translate(-50%, -50%);
+
 }
 
 .detailLink {

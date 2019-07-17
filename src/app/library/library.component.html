@@ -5,9 +5,8 @@
     </div>
     <div class="col-xl-8 col-xs-4">
         <div class="search">
-            <span class="searchLabel">search...</span>
             <input type="text" class="form-control" id="keywords" [(ngModel)]="params.keywords" name="keywords"
-                   placeholder="by Title, author, or keywords" (keyup.enter)="search()" (change)="resetPage()">
+                   placeholder="search by title, author, or keywords" (keyup.enter)="search()" (change)="resetPage()">
             <ng-multiselect-dropdown class="magicWordsDropdown"
                                      [placeholder]="'select magic words'"
                                      [data]="dropdownList"
@@ -17,8 +16,8 @@
             >
             </ng-multiselect-dropdown>
             <button type="button" (click)="search()" class="btn btn-success searchForm">Search</button>
-            <div class="topForm"><a href="https://rathe.app/portal/public/login.php">&#9656;Log in</a><a
-                    href="https://rathe.app/portal/public/signup.php">&#9656;Sign up</a></div>
+            <div class="topForm"><a href="https://rathe.app/portal/public/login.php">Login</a><a
+                    href="https://rathe.app/portal/public/signup.php">Signup</a></div>
         </div>
     </div>
     <!--img class="downArrow" src="../assets/images/downArrow.png" (click)="scrollPage('down')" alt="down arrow">
@@ -37,12 +36,13 @@
             <h4>The Library</h4>
             <app-book [bookdata]="book" *ngFor="let book of books"></app-book>
             <div style="clear:both"></div>
-            <a class="moreResults" [hidden]="!more" href="javascript:void(0)" (click)="getMore()">&#9656;More results</a>
+            <a class="moreResults" [hidden]="!more" href="javascript:void(0)" (click)="getMore()">&#9656;More</a>
         </div>
     </div>
     </ng-scrollbar>
 
 </div>
+
 
 
 
