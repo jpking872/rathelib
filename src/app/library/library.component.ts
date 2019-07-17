@@ -157,9 +157,9 @@ export class LibraryComponent implements OnInit {
                   this.more = false;
               }
 
-              /*for (let i = 0; i < 10; i++) {
+              for (let i = 0; i < 10; i++) {
                   this.books.push(...data);
-              }*/
+              }
 
               const tmpBooks: Book[] = data;
               this.books.push(...tmpBooks);
