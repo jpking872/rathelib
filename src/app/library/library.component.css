@@ -2,7 +2,7 @@
     position:relative;
     padding-bottom:12px;
     border-bottom:1px solid #CCC;
-    background:#FFF;
+    background:#E7E2CD;
 }
 .topForm {
     float:left;
@@ -133,10 +133,10 @@
 
 
 .scrollingBox {
-    padding:20px 0;
+    padding:0;
     overflow-y:hidden;
     max-width:100%;
-    height:calc(100vh - 199px);
+    height:calc(100vh - 174px);
 }
 
 .moreResults {
