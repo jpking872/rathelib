@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~8.0.3",
     "@angular/router": "~8.0.3",
     "@fabricelements/skeleton-carousel": "^3.0.2",
+    "angular2-multiselect-dropdown": "^4.2.7",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "jquery-simplyscroll": "^2.1.1",

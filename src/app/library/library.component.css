@@ -1,7 +1,7 @@
 .header {
     position:relative;
     padding-bottom:12px;
-    border-bottom:1px solid #CCCCCC;
+    border-bottom:1px solid #CCC;
     margin-bottom:20px;
 }
 .topForm {
@@ -141,3 +141,9 @@
     margin-right:25px;
 }
 
+ng-scrollbar {
+    --scrollbar-size: 8px;
+    --scrollbar-thumb-color: rgba(29, 117, 216, 0.55);
+    --scrollbar-thumb-hover-color: dodgerblue;
+    --scrollbar-border-radius: 4px;
+}

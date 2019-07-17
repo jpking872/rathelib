@@ -129,17 +129,17 @@ export class LibraryComponent implements OnInit {
   scrollPage(dir) {
 
       const scrollAmount = 496;
-      const currentPos = this.scrollingBox.nativeElement.offsetTop;
+      const currentPos = this.scrollingBox.nativeElement.scrollTop;
 
       if (dir === 'down') {
-          this.scrollPosition += scrollAmount;
+          this.scrollPosition = currentPos + scrollAmount;
       } else if (dir === 'up') {
-          this.scrollPosition -= scrollAmount;
+          this.scrollPosition = currentPos - scrollAmount;
       }
 
       console.log(currentPos, this.scrollPosition);
 
-      this.scrollRef.scrollYTo(this.scrollPosition, 400).subscribe();
+      this.scrollingBox.nativeElement.scrollTop = this.scrollPosition;
 
 
   }
@@ -156,9 +156,9 @@ export class LibraryComponent implements OnInit {
                   this.more = false;
               }
 
-              for (let i = 0; i < 10; i++) {
+              /*for (let i = 0; i < 10; i++) {
                   this.books.push(...data);
-              }
+              }*/
 
               const tmpBooks: Book[] = data;
               this.books.push(...tmpBooks);

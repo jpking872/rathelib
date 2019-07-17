@@ -1,11 +1,7 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-html{
-    position:relative;
-    min-height:100%;
-}
 body{
-    margin-bottom:00px;
+    margin-bottom:0px;
     font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 14px;
