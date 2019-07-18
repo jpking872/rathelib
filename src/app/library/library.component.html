@@ -6,27 +6,27 @@
     <div class="col-xl-8 col-xs-4">
         <div class="search">
             <input type="text" class="form-control" id="keywords" [(ngModel)]="params.keywords" name="keywords"
-                   placeholder="search by title, author, or keywords" (keyup.enter)="search()" (change)="resetPage()">
+                   placeholder="search by title, author, or keywords" (keyup.enter)="search(true)" (change)="resetPage()">
             <ng-multiselect-dropdown class="magicWordsDropdown"
                                      [placeholder]="'select magic words'"
                                      [data]="dropdownList"
                                      [settings]="dropdownSettings"
                                      [(ngModel)]="selectedItems"
                                      (onSelect)="resetPage()"
+                                     (onDeSelect)="resetPage()"
             >
             </ng-multiselect-dropdown>
-            <button type="button" (click)="search()" class="btn btn-success searchForm">Search</button>
+            <button type="button" (click)="search(true)" class="btn btn-success searchForm">Search</button>
             <div class="topForm"><a href="https://rathe.app/portal/public/login.php">Login</a><a
                     href="https://rathe.app/portal/public/signup.php">Signup</a></div>
         </div>
     </div>
-    <!--img class="downArrow" src="../assets/images/downArrow.png" (click)="scrollPage('down')" alt="down arrow">
-    <img class="upArrow" src="../assets/images/upArrow.png" (click)="scrollPage('up')" alt="up arrow"-->
 </div>
 
 <div class="scrollingBox" #scrollingBox>
-    <ng-scrollbar>
-    <div class="container">
+    <ng-scrollbar #scrollRef>
+    <div class="spinner " *ngIf="loading">loading...</div>
+    <div class="container" *ngIf="!loading">
         <div class="recentWrapper">
             <h4>New and Featured Releases</h4>
             <app-book [bookdata]="book" *ngFor="let book of featuredBooks"></app-book>
@@ -34,9 +34,9 @@
         <div style="clear:both"></div>
         <div class="libraryWrapper">
             <h4>The Library</h4>
+            <div class="infoText" *ngIf="noResults">No results found.</div>
             <app-book [bookdata]="book" *ngFor="let book of books"></app-book>
             <div style="clear:both"></div>
-            <a class="moreResults" [hidden]="!more" href="javascript:void(0)" (click)="getMore()">&#9656;More</a>
         </div>
     </div>
     </ng-scrollbar>
