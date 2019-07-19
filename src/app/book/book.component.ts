@@ -9,6 +9,8 @@ import {NgScrollbar} from 'ngx-scrollbar';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })
+
+
 export class BookComponent implements OnInit {
 
   @Input() bookdata: Book;
@@ -22,10 +24,12 @@ export class BookComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
+
 
 }

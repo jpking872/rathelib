@@ -3,7 +3,7 @@
     <div class="col-xl-4 col-xs-10">
         <a  href="/"><img class="logo" src="assets/images/logo.png" alt="rAthe Logo"></a>
     </div>
-    <div class="col-xl-8 col-xs-4">
+    <div class="col-xl-6 col-xs-4">
         <div class="search">
             <input type="text" class="form-control" id="keywords" [(ngModel)]="params.keywords" name="keywords"
                    placeholder="search by title, author, or keywords" (keyup.enter)="search(true)" (change)="resetPage()">
@@ -17,9 +17,11 @@
             >
             </ng-multiselect-dropdown>
             <button type="button" (click)="search(true)" class="btn btn-success searchForm">Search</button>
-            <div class="topForm"><a href="https://rathe.app/portal/public/login.php">Login</a><a
-                    href="https://rathe.app/portal/public/signup.php">Signup</a></div>
         </div>
+    </div>
+    <div class="col-xl-2">
+        <div class="topForm"><a href="https://rathe.app/portal/public/login.php">Login</a>
+            <a href="https://rathe.app/portal/public/signup.php">Signup</a></div>
     </div>
 </div>
 

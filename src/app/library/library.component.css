@@ -5,8 +5,8 @@
     background:#E7E2CD;
 }
 .topForm {
-    float:left;
-    margin-top:4px;
+    float:right;
+    margin-top:53px;
     margin-left:25px;
     font-size:16px;
 }
@@ -34,7 +34,7 @@
 
 .libraryWrapper h4, .recentWrapper h4 {
     margin:0px 0 2px 10px;
-    color:#144678;
+    color:#000;
     font-size:16px;
 }
 
@@ -64,8 +64,7 @@
 }
 
 .search {
-    padding-left:50px;
-    margin:50px auto 0 auto;
+    margin:50px 0;
 }
 
 
