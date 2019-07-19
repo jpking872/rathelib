@@ -15,44 +15,27 @@
 }
 
 .logo {
-    margin:0 50px;
+    max-width:328px;
+    margin: 15px 50px 0px 50px;
+    padding-bottom:5px;
 }
 
-.libraryWrapper, .recentWrapper {
+.recentWrapper {
     position: relative;
-    margin:20px auto;
+    margin:20px 57px;
     max-width:1115px;
+}
 
+.libraryWrapper {
+    position: relative;
+    margin:0px 57px;
+    max-width:1115px;
 }
 
 .libraryWrapper h4, .recentWrapper h4 {
-    margin:0px 0 0 8px;
+    margin:0px 0 2px 10px;
     color:#144678;
-    font-size:20px;
-}
-
-.downArrow {
-    position:fixed;
-    top:121px;
-    right:77px;
-    cursor:pointer;
-    z-index: 200;
-}
-
-.upArrow {
-    position:fixed;
-    top:120px;
-    right:47px;
-    cursor:pointer;
-    z-index: 200;
-}
-
-.searchLabel {
-    margin-top:15px;
     font-size:16px;
-    float:left;
-    margin-right:16px;
-    color:#144678;
 }
 
 #keywords {
@@ -105,12 +88,6 @@
     margin:10px 0 0 8px;
     color:#144678;
     font-size:18px;
-}
-.moreResults {
-    float:right;
-    margin-top:25px;
-    margin-right:25px;
-    font-size:16px;
 }
 
 ng-scrollbar {

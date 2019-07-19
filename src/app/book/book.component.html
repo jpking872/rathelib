@@ -15,27 +15,31 @@
 </a>
 
 <ng-template #template>
+
     <div class="modal-wrapper">
     <div class="modal-header">
-        <p class="modal-title pull-left"><strong><span [innerHTML]="bookdata.TitleName"></span></strong></p>
+        <p class="modal-title pull-left"><strong><span class="modalLabel" [innerHTML]="bookdata.TitleName"></span></strong></p>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+        <ng-scrollbar #scrollDetail>
     <div class="modal-body">
         <div class="authorImage">
             <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : bookdata.BioPhotoLink" alt="Author Image">
-            <p class="authorCaption"><strong><span [innerHTML]="bookdata.TitlePersona"></span></strong></p>
+            <p class="authorCaption"><strong><span class="modalLabel" [innerHTML]="bookdata.TitlePersona"></span></strong></p>
             <div style="clear:both"></div>
 
         </div>
-        <p *ngIf="!showbio"><strong>Author Bio: </strong><span [innerHTML]="bookdata.AuthorBio.substring(0, 50)"></span>... <span class="expand" (click)="showbio = true">&nbsp;&raquo;<span class="underline">more</span></span></p>
-        <p *ngIf="showbio"><strong>Author Bio: </strong><span [innerHTML]="bookdata.AuthorBio"></span> <span *ngIf="showbio" class="expand" (click)="showbio = false">&nbsp;&raquo;<span class="underline">less</span></span></p>
-        <p><strong>Hook line: </strong><span [innerHTML]="bookdata.TitleDescription"></span></p>
-        <p><strong>Acknowledgement: </strong><span [innerHTML]="bookdata.Acknowledgment"></span></p>
-        <p><strong>Dedication: </strong><span [innerHTML]="bookdata.Dedication"></span></p>
-        <p><strong>Description: </strong><span [innerHTML]="bookdata.TitleDescription"></span></p>
-    </div>
+        <p *ngIf="!showbio"><span class="modalLabel">Author Bio: </span><span [innerHTML]="bookdata.AuthorBio.substring(0, 50)"></span>... <span class="expand" (click)="showbio = true">&nbsp;&raquo;<span class="underline">more</span></span></p>
+        <p *ngIf="showbio"><span class="modalLabel">Author Bio: </span><span [innerHTML]="bookdata.AuthorBio"></span> <span *ngIf="showbio" class="expand" (click)="showbio = false">&nbsp;&raquo;<span class="underline">less</span></span></p>
+        <p><span class="modalLabel">Hook line: </span><span [innerHTML]="bookdata.TitleDescription"></span></p>
+        <p><span class="modalLabel">Acknowledgement: </span><span [innerHTML]="bookdata.Acknowledgment"></span></p>
+        <p><span class="modalLabel">Dedication: </span><span [innerHTML]="bookdata.Dedication"></span></p>
+                <p><span class="modalLabel">Description: </span><span [innerHTML]="bookdata.TitleDescription"></span></p>
+        <div class="mobile"><img src="assets/images/appStoreWhite.png" alt="ios download"></div>
+        </div>
+        </ng-scrollbar>
     </div>
 </ng-template>
 

@@ -78,8 +78,9 @@ export class LibraryComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         this.scrollRef.scrollable.elementScrolled().subscribe(e => {
-            let pos = e.target.scrollTop + e.target.clientHeight;
-            let max = e.target.scrollHeight;
+            let elem = e.target as HTMLDivElement;
+            let pos = elem.scrollTop + elem.clientHeight;
+            let max = elem.scrollHeight;
             if (pos >= max && this.more === true) {
                 console.log('get more');
                 this.getMore();

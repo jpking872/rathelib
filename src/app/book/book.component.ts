@@ -1,7 +1,8 @@
-import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import { Book } from '../book';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import {MainService} from '../main.service';
+import {NgScrollbar} from 'ngx-scrollbar';
 
 @Component({
   selector: 'app-book',
@@ -11,8 +12,10 @@ import {MainService} from '../main.service';
 export class BookComponent implements OnInit {
 
   @Input() bookdata: Book;
+  @ViewChild(NgScrollbar, {static: false}) scrollDetail: NgScrollbar;
   public modalRef: BsModalRef;
   public showbio: boolean = false;
+
 
   constructor(private modalService: BsModalService) {
 
