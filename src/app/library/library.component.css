@@ -5,10 +5,10 @@
     background:#E7E2CD;
 }
 .topForm {
-    float:right;
-    margin-top:53px;
-    margin-left:25px;
-    font-size:16px;
+    position:absolute;
+    top:54px;
+    right:25px;
+    font-size:18px;
 }
 .topForm a {
     margin-right:15px;

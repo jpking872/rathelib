@@ -31,5 +31,10 @@ export class BookComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
+  closeModal(template: TemplateRef<any>) {
+    console.log('close modal')
+    this.modalRef.hide();
+  }
+
 
 }
