@@ -91,7 +91,7 @@
 
 .detailBox {
     width:550px;
-    margin:10px auto;
+    margin:30px auto;
     padding:15px;
     -webkit-box-shadow: 4px 4px 7px 0px rgba(170,170,170,1);
     -moz-box-shadow: 4px 4px 7px 0px rgba(170,170,170,1);
@@ -123,8 +123,12 @@
     margin-right:10px;
 }
 
+.authorLink div {
+    margin-top:19px;
+}
+
 .detailBox p.hookLine {
-    margin-top:14px;
+    margin-top:21px;
     margin-bottom:0;
 }
 .bookDescription {
@@ -142,10 +146,12 @@ ng-scrollbar {
 .modal-wrapper {
     border:4px solid rgba(204,204,204,0.55);
     background-color: #E7E2CD;
+    padding-bottom:15px;
 }
 
 .modal-body {
     max-height:calc(100vh - 106px);
+    padding-bottom:0;
 }
 
 .modalLabel {

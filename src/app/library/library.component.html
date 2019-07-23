@@ -51,7 +51,7 @@
             <img class="coverImage" [src]="bookdata.CoverArtLink == '/generic/cover/image' || bookdata.CoverArtLink === null ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : bookdata.CoverArtLink">
             <h4 [innerHTML]="bookdata.TitleName"></h4>
             <a class="authorLink" href="javascript:void(0)" (click)="openModal(authorBio)"><img class="author" [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : bookdata.BioPhotoLink">
-            <span [innerHTML]="bookdata.TitlePersona"></span><br/>&raquo;bio</a>
+            <div [innerHTML]="bookdata.TitlePersona"></div></a>
             <p class="hookLine" [innerHTML]="bookdata.TitleHookLine"></p>
             <p>{{bookdata.LastUpdated | date:'longDate' }}</p>
         </div>
@@ -68,7 +68,7 @@
 <ng-template #authorBio>
     <div class="modal-wrapper">
         <div class="modal-header">
-            <p class="modal-title pull-left"><strong><span class="modalLabel" [innerHTML]="bookdata.TitlePersona"></span></strong></p>
+            <p class="modal-title pull-left"><strong><span class="modalLabel">About {{ bookdata.TitlePersona }}</span></strong></p>
             <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -78,7 +78,13 @@
                     <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : bookdata.BioPhotoLink" alt="Author Image">
                     <div style="clear:both"></div>
                 </div>
-                <p><span [innerHTML]="bookdata.AuthorBio"></span></p>
+                <p><span>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo tellus, fermentum ac lobortis sed, tristique sed sem. Cras semper facilisis nisl, mattis semper est pharetra eleifend. Donec ac turpis placerat, viverra ipsum sit amet, sodales eros. Cras accumsan felis in metus interdum, eu dignissim mauris mollis. Curabitur vitae augue dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla mollis nisl eu iaculis viverra.
+
+Nam et pharetra purus. Duis pretium velit sit amet justo dictum, ac consectetur ex aliquet. Integer lacinia condimentum tincidunt. Fusce ullamcorper nunc ac eros tincidunt, vel bibendum sem suscipit. Nunc vel tempor libero. Quisque venenatis velit eu malesuada efficitur. Morbi maximus quis urna non vestibulum. Praesent nisi nisl, eleifend vel metus et, semper imperdiet enim. Nullam congue mauris in nibh ultrices tincidunt.
+
+Maecenas non ultrices lorem. Fusce sit amet scelerisque ante. Suspendisse aliquet quis justo in cursus. Quisque ut est sit amet risus vestibulum tempus a et dolor. Ut faucibus venenatis sollicitudin. Nam accumsan quam vel risus semper accumsan eget vel magna. Donec ut nunc pretium, malesuada turpis quis, rhoncus tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque sodales, nibh et rutrum ornare, sem mi mollis neque, sit amet dignissim diam leo vel nunc. Morbi a velit a lectus ultricies semper. Nunc id nulla et metus vestibulum blandit.Nunc vitae blandit sem, non porta lorem. Vivamus a tellus eu turpis molestie mattis in sed mi. Mauris consequat id lectus a euismod.</span></p>
             </div>
     </div>
 </ng-template>
