@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, AfterViewInit, TemplateRef} from '@angular/core';
 import { Observable } from 'rxjs';
 import { MainService } from '../main.service';
 import { Book } from '../book';
 import { Search } from '../search';
 import { NgScrollbar } from 'ngx-scrollbar';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
@@ -19,6 +20,7 @@ export class LibraryComponent implements OnInit, AfterViewInit {
 
   @ViewChild(NgScrollbar, {static: false}) scrollRef: NgScrollbar;
   @ViewChild('scrollingBox', {static: false}) scrollingBox: ElementRef;
+    public modalRef: BsModalRef;
 
   public params: Search;
   public books: Book[] = [];
@@ -28,12 +30,14 @@ export class LibraryComponent implements OnInit, AfterViewInit {
   public reset: boolean = false;
   public loading = false;
   public noResults = false;
+  public bookdata: Book;
+  public detail: boolean = false;
 
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
 
-  constructor(private mainService: MainService) {
+  constructor(private mainService: MainService, private modalService: BsModalService) {
 
       this.size = 4;
       this.params = new Search('', 'false', [], 0, this.size);
@@ -86,6 +90,19 @@ export class LibraryComponent implements OnInit, AfterViewInit {
                 this.getMore();
             }
         });
+    }
+
+    showDetail(book) {
+      this.bookdata = book;
+      this.detail = true;
+    }
+
+    hideDetail() {
+      this.detail = false;
+    }
+
+    openModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template);
     }
 
 

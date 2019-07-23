@@ -1,15 +1,9 @@
-<!--div class="book">
-    <h4 [ngClass]="{'topSpace': bookdata.TitleName.length > 23 }">{{bookdata.TitleName}}</h4>
-    <img [src]="bookdata.CoverArtLink == '/generic/cover/image' ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : bookdata.CoverArtLink">
-    <button type="button" class="detailLink btn btn-success" (click)="openModal(template)">read more</button>
-</div-->
-
-<a href="javascript:void(0)" (click)="openModal(template)">
+<a href="javascript:void(0)">
 <div class="book">
     <div class="imageWrapper">
     <img [src]="bookdata.CoverArtLink == '/generic/cover/image' || bookdata.CoverArtLink === null ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : bookdata.CoverArtLink">
     </div>
-    <h4 (click)="openModal(template)">{{bookdata.TitleName}}</h4>
+    <h4>{{bookdata.TitleName}}</h4>
     <div style="clear:both"></div>
 </div>
 </a>

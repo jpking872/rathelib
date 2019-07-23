@@ -1,12 +1,13 @@
 <div class="row header">
 
-    <div class="col-xl-4 col-xs-10">
-        <a  href="/"><img class="logo" src="assets/images/logo.png" alt="rAthe Logo"></a>
+    <div class="col-xl-4 col-xs-8">
+        <a href="/"><img class="logo" src="assets/images/logo.png" alt="rAthe Logo"></a>
     </div>
     <div class="col-xl-6 col-xs-4">
         <div class="search">
             <input type="text" class="form-control" id="keywords" [(ngModel)]="params.keywords" name="keywords"
-                   placeholder="search by title, author, or keywords" (keyup.enter)="search(true)" (change)="resetPage()">
+                   placeholder="search by title, author, or keywords" (keyup.enter)="search(true)"
+                   (change)="resetPage()">
             <ng-multiselect-dropdown class="magicWordsDropdown"
                                      [placeholder]="'select magic words'"
                                      [data]="dropdownList"
@@ -19,30 +20,68 @@
             <button type="button" (click)="search(true)" class="btn btn-success searchForm">Search</button>
         </div>
     </div>
-        <div class="topForm"><a href="https://rathe.app/portal/public/login.php">Login</a>
-            <a href="https://rathe.app/portal/public/signup.php">Signup</a></div>
+    <div class="topForm"><a href="https://rathe.app/portal/public/login.php">Login</a>
+        <a href="https://rathe.app/portal/public/signup.php">Signup</a></div>
 </div>
 
-<div class="scrollingBox" #scrollingBox>
+<div class="scrollingBox" #scrollingBox *ngIf="!detail">
     <ng-scrollbar #scrollRef>
-    <div class="spinner " *ngIf="loading">loading...</div>
-    <div class="container" *ngIf="!loading">
-        <div class="recentWrapper">
-            <h4>New and Featured Releases</h4>
-            <app-book [bookdata]="book" *ngFor="let book of featuredBooks"></app-book>
-        </div>
-        <div style="clear:both"></div>
-        <div class="libraryWrapper">
-            <h4>Library</h4>
-            <div class="infoText" *ngIf="noResults">No results found.</div>
-            <app-book [bookdata]="book" *ngFor="let book of books"></app-book>
+        <div class="spinner" *ngIf="loading">loading...</div>
+        <div class="container" *ngIf="!loading">
+            <div class="recentWrapper">
+                <h4>New and Featured Releases</h4>
+                <app-book [bookdata]="book" *ngFor="let book of featuredBooks" (click)="showDetail(book)"></app-book>
+            </div>
             <div style="clear:both"></div>
+            <div class="libraryWrapper">
+                <h4>Library</h4>
+                <div class="infoText" *ngIf="noResults">No results found.</div>
+                <app-book [bookdata]="book" *ngFor="let book of books" (click)="showDetail(book)"></app-book>
+                <div style="clear:both"></div>
+            </div>
         </div>
-    </div>
     </ng-scrollbar>
 
 </div>
 
+<div class="container scrollingBox" *ngIf="detail">
+    <ng-scrollbar>
+<div class="detailBox">
+        <div class="bookInfo">
+            <img class="coverImage" [src]="bookdata.CoverArtLink == '/generic/cover/image' || bookdata.CoverArtLink === null ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : bookdata.CoverArtLink">
+            <h4 [innerHTML]="bookdata.TitleName"></h4>
+            <a class="authorLink" href="javascript:void(0)" (click)="openModal(authorBio)"><img class="author" [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : bookdata.BioPhotoLink">
+            <span [innerHTML]="bookdata.TitlePersona"></span><br/>&raquo;bio</a>
+            <p class="hookLine" [innerHTML]="bookdata.TitleHookLine"></p>
+            <p>{{bookdata.LastUpdated | date:'longDate' }}</p>
+        </div>
+        <div class="bookDescription">
+            <p><span [innerHTML]="bookdata.TitleDescription"></span>
+            <p>Acknowledgement: <span [innerHTML]="bookdata.Acknowledgment"></span>
+            </p>
+            <p>Dedication: <span [innerHTML]="bookdata.Dedication"></span></p>
+        </div>
+    </div>
+    </ng-scrollbar>
+</div>
+
+<ng-template #authorBio>
+    <div class="modal-wrapper">
+        <div class="modal-header">
+            <p class="modal-title pull-left"><strong><span class="modalLabel" [innerHTML]="bookdata.TitlePersona"></span></strong></p>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+            <div class="modal-body">
+                <div class="authorImage">
+                    <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : bookdata.BioPhotoLink" alt="Author Image">
+                    <div style="clear:both"></div>
+                </div>
+                <p><span [innerHTML]="bookdata.AuthorBio"></span></p>
+            </div>
+    </div>
+</ng-template>
 
 
 
