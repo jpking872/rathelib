@@ -4,15 +4,22 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainService } from './main.service';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LibraryComponent } from './library/library.component';
 import { BookComponent } from './book/book.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+
+/*const appRoutes: Routes = [
+  { path: 'detail/:id', component: DetailComponent },
+  { path: 'library', component: LibraryComponent },
+
+  { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
+];*/
 
 @NgModule({
   declarations: [
@@ -26,10 +33,9 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
       FormsModule,
       HttpClientModule,
       ModalModule.forRoot(),
-      PaginationModule.forRoot(),
       NgMultiSelectDropDownModule.forRoot(),
-      ScrollingModule,
-      NgScrollbarModule
+      NgScrollbarModule,
+
   ],
   providers: [MainService],
   bootstrap: [AppComponent]

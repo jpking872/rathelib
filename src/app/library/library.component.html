@@ -45,6 +45,7 @@
 </div>
 
 <div class="container scrollingBox" *ngIf="detail">
+    <img (click)="hideDetail()" class="backArrow" src="assets/images/leftArrow.png" alt="back arrow">
     <ng-scrollbar>
 <div class="detailBox">
         <div class="bookInfo">
@@ -56,7 +57,11 @@
             <p>{{bookdata.LastUpdated | date:'longDate' }}</p>
         </div>
         <div class="bookDescription">
-            <p><span [innerHTML]="bookdata.TitleDescription"></span>
+            <p><span [innerHTML]="bookdata.TitleDescription"></span><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius porttitor purus. Vivamus ultricies aliquet tristique. Nam pharetra nulla felis, et sollicitudin metus eleifend sed. Morbi sed nisl at mi hendrerit pulvinar ut posuere lacus. Praesent sodales sem et ligula condimentum, id porta odio finibus. Aenean sapien diam, ullamcorper eu nunc eget, gravida condimentum eros. Curabitur interdum dignissim tellus sed viverra.
+
+Pellentesque ac tristique orci. Donec vitae nisi at sapien dictum interdum. Donec sem nibh, semper nec interdum at, ultrices quis urna. Morbi diam eros, molestie vitae tellus quis, convallis euismod augue. Cras scelerisque lacus a tempus dictum. In hac habitasse platea dictumst. Maecenas odio est, imperdiet id sem nec, blandit lobortis nisl. Mauris auctor turpis in sem volutpat luctus. Duis congue neque vitae elementum ultricies.
+
+Nunc tempor lacus dictum interdum tempor. Pellentesque at dapibus nulla. Quisque vel est in mi malesuada sagittis in in arcu. Aliquam a justo justo. Ut bibendum, mi id finibus ornare, velit tortor condimentum diam, vitae volutpat magna turpis non neque. Cras pharetra, ex eget volutpat placerat, massa leo volutpat ex, vel feugiat tellus ipsum in lorem. Proin bibendum felis velit, in laoreet augue sodales sed. Integer bibendum ultrices lorem vehicula viverra. Mauris felis metus, bibendum ut lacus eget, pulvinar auctor leo.</span></p>
             <p>Acknowledgement: <span [innerHTML]="bookdata.Acknowledgment"></span>
             </p>
             <p>Dedication: <span [innerHTML]="bookdata.Dedication"></span></p>

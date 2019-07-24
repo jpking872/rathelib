@@ -102,6 +102,16 @@
     margin-bottom:6px;
 }
 
+.backArrow {
+    position:absolute;
+    top:33px;
+    left:50%;
+    margin-left:-345px;
+    display:block;
+    cursor:pointer;
+    z-index: 2000;
+}
+
 .bookInfo {
     height:150px;
     padding:2px;

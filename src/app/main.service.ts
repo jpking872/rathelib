@@ -47,6 +47,18 @@ export class MainService {
 
     }
 
+  searchById(id) {
+
+    let url = 'https://rathe.app/api/searchById.php?bookid=' + id;
+    // let url = 'http://local.hockeyapi.com/api/searchById/' + id;
+    return this.http.get<Book>(url,{
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      })
+    });
+
+  }
+
     setBooks(data) {
       this.books = data;
     }
