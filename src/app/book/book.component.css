@@ -4,6 +4,7 @@
     height:185px;
     margin:2px 8px;
     position: relative;
+    cursor:pointer;
 }
 
 .book h4 {

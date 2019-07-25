@@ -9,23 +9,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LibraryComponent } from './library/library.component';
 import { BookComponent } from './book/book.component';
+import { PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
-/*const appRoutes: Routes = [
-  { path: 'detail/:id', component: DetailComponent },
-  { path: 'library', component: LibraryComponent },
-
-  { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
+const appRoutes: Routes = [
+  { path: '', component: LibraryComponent },
+  { path: 'detail/:id', component: LibraryComponent },
   { path: '**', component: PageNotFoundComponent }
-];*/
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     LibraryComponent,
-    BookComponent
+    BookComponent,
+      PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +35,10 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
       ModalModule.forRoot(),
       NgMultiSelectDropDownModule.forRoot(),
       NgScrollbarModule,
+      RouterModule.forRoot(
+        appRoutes,
+        { enableTracing: true } // <-- debugging purposes only
+    )
 
   ],
   providers: [MainService],
