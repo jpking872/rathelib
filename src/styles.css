@@ -10,7 +10,8 @@ body{
     font-weight: 400;
     font-size: 14px;
     overflow-y:hidden;
-    background-color:#F6F0D8;
+    background:url(./assets/images/bgLib.jpg);
+    background-size:cover;
 }
 
 a:hover {

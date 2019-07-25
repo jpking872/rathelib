@@ -44,8 +44,6 @@ export class LibraryComponent implements OnInit, AfterViewInit {
       this.params = new Search('', 'false', [], 0, this.size);
 
       this.detail = false;
-      // this.detail = router.url == '/detail/:id' ? true : false;
-      console.log(this.detail);
 
   }
 
@@ -155,10 +153,6 @@ export class LibraryComponent implements OnInit, AfterViewInit {
 
               if (data.length === 0) {
                   this.more = false;
-              }
-
-              for (let i = 0; i < 10; i++) {
-                  this.books.push(...data);
               }
 
               const tmpBooks: Book[] = data;

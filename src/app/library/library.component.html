@@ -20,7 +20,9 @@
             <button type="button" (click)="search(true)" class="btn btn-success searchForm">Search</button>
         </div>
     </div>
-    <div class="topForm"><a href="https://rathe.app/portal/public/login.php">Login</a>
+    <div class="topForm">
+        <a href="https://rathe.app">rAthe Home</a>
+        <a href="https://rathe.app/portal/public/login.php">Login</a>
         <a href="https://rathe.app/portal/public/signup.php">Signup</a></div>
 </div>
 
@@ -57,11 +59,7 @@
             <p>{{bookdata.LastUpdated | date:'longDate' }}</p>
         </div>
         <div class="bookDescription">
-            <p><span [innerHTML]="bookdata.TitleDescription"></span><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla varius porttitor purus. Vivamus ultricies aliquet tristique. Nam pharetra nulla felis, et sollicitudin metus eleifend sed. Morbi sed nisl at mi hendrerit pulvinar ut posuere lacus. Praesent sodales sem et ligula condimentum, id porta odio finibus. Aenean sapien diam, ullamcorper eu nunc eget, gravida condimentum eros. Curabitur interdum dignissim tellus sed viverra.
-
-Pellentesque ac tristique orci. Donec vitae nisi at sapien dictum interdum. Donec sem nibh, semper nec interdum at, ultrices quis urna. Morbi diam eros, molestie vitae tellus quis, convallis euismod augue. Cras scelerisque lacus a tempus dictum. In hac habitasse platea dictumst. Maecenas odio est, imperdiet id sem nec, blandit lobortis nisl. Mauris auctor turpis in sem volutpat luctus. Duis congue neque vitae elementum ultricies.
-
-Nunc tempor lacus dictum interdum tempor. Pellentesque at dapibus nulla. Quisque vel est in mi malesuada sagittis in in arcu. Aliquam a justo justo. Ut bibendum, mi id finibus ornare, velit tortor condimentum diam, vitae volutpat magna turpis non neque. Cras pharetra, ex eget volutpat placerat, massa leo volutpat ex, vel feugiat tellus ipsum in lorem. Proin bibendum felis velit, in laoreet augue sodales sed. Integer bibendum ultrices lorem vehicula viverra. Mauris felis metus, bibendum ut lacus eget, pulvinar auctor leo.</span></p>
+            <p><span [innerHTML]="bookdata.TitleDescription"></span></p>
             <p>Acknowledgement: <span [innerHTML]="bookdata.Acknowledgment"></span>
             </p>
             <p>Dedication: <span [innerHTML]="bookdata.Dedication"></span></p>
@@ -83,13 +81,7 @@ Nunc tempor lacus dictum interdum tempor. Pellentesque at dapibus nulla. Quisque
                     <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : bookdata.BioPhotoLink" alt="Author Image">
                     <div style="clear:both"></div>
                 </div>
-                <p><span>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo tellus, fermentum ac lobortis sed, tristique sed sem. Cras semper facilisis nisl, mattis semper est pharetra eleifend. Donec ac turpis placerat, viverra ipsum sit amet, sodales eros. Cras accumsan felis in metus interdum, eu dignissim mauris mollis. Curabitur vitae augue dui. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla mollis nisl eu iaculis viverra.
-
-Nam et pharetra purus. Duis pretium velit sit amet justo dictum, ac consectetur ex aliquet. Integer lacinia condimentum tincidunt. Fusce ullamcorper nunc ac eros tincidunt, vel bibendum sem suscipit. Nunc vel tempor libero. Quisque venenatis velit eu malesuada efficitur. Morbi maximus quis urna non vestibulum. Praesent nisi nisl, eleifend vel metus et, semper imperdiet enim. Nullam congue mauris in nibh ultrices tincidunt.
-
-Maecenas non ultrices lorem. Fusce sit amet scelerisque ante. Suspendisse aliquet quis justo in cursus. Quisque ut est sit amet risus vestibulum tempus a et dolor. Ut faucibus venenatis sollicitudin. Nam accumsan quam vel risus semper accumsan eget vel magna. Donec ut nunc pretium, malesuada turpis quis, rhoncus tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque sodales, nibh et rutrum ornare, sem mi mollis neque, sit amet dignissim diam leo vel nunc. Morbi a velit a lectus ultricies semper. Nunc id nulla et metus vestibulum blandit.Nunc vitae blandit sem, non porta lorem. Vivamus a tellus eu turpis molestie mattis in sed mi. Mauris consequat id lectus a euismod.</span></p>
+                <p [innerHTML]="bookdata.AuthorBio"></p>
             </div>
     </div>
 </ng-template>
