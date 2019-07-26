@@ -5,7 +5,6 @@ import { Book } from '../book';
 import { Search } from '../search';
 import { NgScrollbar } from 'ngx-scrollbar';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import {Router} from '@angular/router';
 
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
@@ -38,7 +37,7 @@ export class LibraryComponent implements OnInit, AfterViewInit {
   selectedItems = [];
   dropdownSettings = {};
 
-  constructor(private mainService: MainService, private modalService: BsModalService, private router: Router) {
+  constructor(private mainService: MainService, private modalService: BsModalService) {
 
       this.size = 4;
       this.params = new Search('', 'false', [], 0, this.size);
