@@ -18,6 +18,7 @@ export class BookComponent implements OnInit {
   public modalRef: BsModalRef;
   public showbio: boolean = false;
 
+  public coverpath: string = 'https://rathe.app/portal/newdir/store-tank/cover-art/';
 
   constructor(private modalService: BsModalService) {
 
@@ -32,7 +33,6 @@ export class BookComponent implements OnInit {
   }
 
   closeModal(template: TemplateRef<any>) {
-    console.log('close modal')
     this.modalRef.hide();
   }
 

@@ -2,7 +2,7 @@
     position:relative;
     padding-bottom:12px;
     border-bottom:1px solid #CCC;
-    background:#E7E2CD;
+    background:rgba(252, 252, 252, 0.5);
 }
 .topForm {
     position:absolute;
@@ -34,7 +34,7 @@
 
 .libraryWrapper h4, .recentWrapper h4 {
     margin:0px 0 2px 10px;
-    color:#000;
+    color:#123C75;
     font-size:16px;
 }
 
@@ -93,7 +93,7 @@
     width:550px;
     margin:30px auto;
     padding:15px;
-    background-color:#F6F0D8;
+    background-color:#FDFCFF;
     -webkit-box-shadow: 4px 4px 7px 0px rgba(170,170,170,1);
     -moz-box-shadow: 4px 4px 7px 0px rgba(170,170,170,1);
     box-shadow: 4px 4px 7px 0px rgba(170,170,170,1);
@@ -102,6 +102,19 @@
 .detailBox p {
     margin-bottom:6px;
 }
+
+.detailHeader {
+    font-weight:bold;
+    font-size:12px;
+    color:#123C75;
+
+}
+
+.detailSmall {
+    font-size:12px;
+    line-height:125%;
+}
+
 
 .backArrow {
     position:absolute;
@@ -114,8 +127,8 @@
 }
 
 .bookInfo {
-    height:150px;
     padding:2px;
+    margin-bottom: 8px;
 }
 
 .bookInfo .coverImage {
@@ -123,18 +136,49 @@
     margin-right:10px;
 }
 
+.bookInfo .coverImage img {
+    max-width:150px;
+    max-height:150px;
+}
+
 .bookInfo h4 {
     margin:0 20px 5px 20px;
+    color:#123C75;
 }
 
 .bookInfo .author {
     float:left;
-    width:50px;
     height:50px;
+    width:50px;
     margin-right:10px;
 }
 
-.authorLink div {
+.bookInfo .author img {
+    max-width:100%;
+    max-height:100%;
+}
+
+
+.book .imageWrapper {
+    position:relative;
+    display:block;
+    width:150px;
+    height:150px;
+    background-color: #FAFAFA;
+}
+
+.book img {
+    position:absolute;
+    max-width:150px;
+    max-height:150px;
+    top:50%;
+    left:50%;
+    display:block;
+    transform: translate(-50%, -50%);
+
+}
+
+.authorLink {
     margin-top:19px;
 }
 
@@ -155,9 +199,9 @@ ng-scrollbar {
 }
 
 .modal-wrapper {
-    border:4px solid rgba(204,204,204,0.55);
-    background-color: #E7E2CD;
-    padding-bottom:15px;
+    border:3px solid #CCCCCC;
+    background-color: #FDFCFF;
+    padding-bottom: 20px;
 }
 
 .modal-body {
@@ -166,7 +210,7 @@ ng-scrollbar {
 }
 
 .modalLabel {
-    color:#1C62E8;
+    color:#123C75;
     font-weight:bold;
 }
 
@@ -177,7 +221,6 @@ div.modal-header {
 }
 
 p.modal-title {
-    color:#144678;
     font-size:18px
 }
 
@@ -194,10 +237,10 @@ p.modal-title {
     position:absolute;
     max-width:100%;
     max-height:100%;
-    top:50%;
+    top:0;
     left:50%;
     display:block;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
 }
 
 .authorCaption {

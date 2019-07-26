@@ -33,15 +33,17 @@ export class LibraryComponent implements OnInit, AfterViewInit {
   public bookdata: Book;
   public detail: boolean;
 
+  public coverpath: string = 'https://rathe.app/portal/newdir/store-tank/cover-art/';
+  public authorpath: string = 'https://rathe.app/portal/newdir/store-tank/bio-photo/';
+
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
 
   constructor(private mainService: MainService, private modalService: BsModalService) {
 
-      this.size = 4;
+      this.size = 24;
       this.params = new Search('', 'false', [], 0, this.size);
-
       this.detail = false;
 
   }
@@ -137,12 +139,12 @@ export class LibraryComponent implements OnInit, AfterViewInit {
 
   search(clear) {
 
+      this.detail = false;
+
       if (clear) {
           this.loading = true;
           this.books = [];
       }
-
-      console.log(this.params);
 
       this.noResults = false;
 

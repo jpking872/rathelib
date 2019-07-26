@@ -51,18 +51,25 @@
     <ng-scrollbar>
 <div class="detailBox">
         <div class="bookInfo">
-            <img class="coverImage" [src]="bookdata.CoverArtLink == '/generic/cover/image' || bookdata.CoverArtLink === null ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : bookdata.CoverArtLink">
-            <h4 [innerHTML]="bookdata.TitleName"></h4>
-            <a class="authorLink" href="javascript:void(0)" (click)="openModal(authorBio)"><img class="author" [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : bookdata.BioPhotoLink">
-            <div [innerHTML]="bookdata.TitlePersona"></div></a>
-            <p class="hookLine" [innerHTML]="bookdata.TitleHookLine"></p>
-            <p>{{bookdata.LastUpdated | date:'longDate' }}</p>
+            <div class="coverImage">
+            <img [src]="bookdata.CoverArtLink == '/generic/cover/image' || bookdata.CoverArtLink === null ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : coverpath + bookdata.CoverArtLink">
+            </div>
+                <h4 [innerHTML]="bookdata.TitleName"></h4>
+            <a href="javascript:void(0)" (click)="openModal(authorBio)">
+                <div class="author">
+                    <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : authorpath + bookdata.BioPhotoLink">
+                </div>
+            <div class="authorLink" [innerHTML]="bookdata.TitlePersona"></div></a>
+            <p class="hookLine detailSmall" [innerHTML]="bookdata.TitleHookLine"></p>
+            <p class="detailSmall">{{bookdata.LastUpdated | date:'longDate' }}</p>
+            <div style="clear:both"></div>
         </div>
+    <div style="clear:both"></div>
         <div class="bookDescription">
             <p><span [innerHTML]="bookdata.TitleDescription"></span></p>
-            <p>Acknowledgement: <span [innerHTML]="bookdata.Acknowledgment"></span>
+            <p><span class="detailHeader">Acknowledgement:</span><br/><span class="detailSmall" [innerHTML]="bookdata.Acknowledgment"></span>
             </p>
-            <p>Dedication: <span [innerHTML]="bookdata.Dedication"></span></p>
+            <p><span class="detailHeader">Dedication:</span><br/><span class="detailSmall" [innerHTML]="bookdata.Dedication"></span></p>
         </div>
     </div>
     </ng-scrollbar>
@@ -78,7 +85,7 @@
         </div>
             <div class="modal-body">
                 <div class="authorImage">
-                    <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : bookdata.BioPhotoLink" alt="Author Image">
+                    <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : authorpath + bookdata.BioPhotoLink" alt="Author Image">
                     <div style="clear:both"></div>
                 </div>
                 <p [innerHTML]="bookdata.AuthorBio"></p>

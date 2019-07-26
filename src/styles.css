@@ -14,9 +14,12 @@ body{
     background-size:cover;
 }
 
+a {
+    color:#1D76D8;
+}
+
 a:hover {
-    color:#000;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .magicWordsDropdown .multiselect-dropdown {
@@ -40,7 +43,7 @@ a:hover {
     height:75px;
     border-top:solid 1px #ccc;
     padding-top:13px;
-    background:#E7E2CD;
+    background:rgba(252, 252, 252, 0.5);
     font-size:16px;
 }
 .footer a.footer-text{
