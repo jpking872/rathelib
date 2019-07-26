@@ -12,12 +12,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
-/*const appRoutes: Routes = [
-  { path: '', component: LibraryComponent },
-  { path: 'detail/:id', component: LibraryComponent },
-  { path: '**', component: PageNotFoundComponent }
-];*/
-
 @NgModule({
   declarations: [
     AppComponent,
