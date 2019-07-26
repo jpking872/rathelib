@@ -55,11 +55,11 @@
             <img [src]="bookdata.CoverArtLink == '/generic/cover/image' || bookdata.CoverArtLink === null ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : coverpath + bookdata.CoverArtLink">
             </div>
                 <h4 [innerHTML]="bookdata.TitleName"></h4>
-            <a href="javascript:void(0)" (click)="openModal(authorBio)">
                 <div class="author">
                     <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : authorpath + bookdata.BioPhotoLink">
                 </div>
-            <div class="authorLink" [innerHTML]="bookdata.TitlePersona"></div></a>
+                <div class="authorLink">{{bookdata.TitlePersona}}&nbsp;<span style="font-size:12px;text-decoration:underline;color:#1D76D8">
+                    <a href="javascript:void(0)" (click)="openModal(authorBio)">&raquo;bio</a></span></div>
             <p class="hookLine detailSmall" [innerHTML]="bookdata.TitleHookLine"></p>
             <p class="detailSmall">{{bookdata.LastUpdated | date:'longDate' }}</p>
             <div style="clear:both"></div>
