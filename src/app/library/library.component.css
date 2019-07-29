@@ -89,8 +89,13 @@
     font-size:18px;
 }
 
+.returnText {
+    margin-top:2px;
+    color:#123C75;
+}
+
 .detailBox {
-    width:550px;
+    max-width:550px;
     margin:30px auto;
     padding:15px;
     background-color:#FDFCFF;
@@ -121,6 +126,7 @@
     top:33px;
     left:50%;
     margin-left:-345px;
+    width:44px;
     display:block;
     cursor:pointer;
     z-index: 2000;
@@ -128,7 +134,7 @@
 
 .bookInfo {
     padding:2px;
-    margin-bottom: 8px;
+    margin-bottom: 0px;
 }
 
 .bookInfo .coverImage {
@@ -144,6 +150,7 @@
 .bookInfo h4 {
     margin:0 20px 5px 20px;
     color:#123C75;
+    font-size:24px;
 }
 
 .bookInfo .author {
@@ -182,12 +189,19 @@
     margin-top:19px;
 }
 
+.bioLink {
+    font-size:12px;
+    text-decoration:underline;
+    color:#1D76D8;
+    margin-top:-2px;
+
+}
 .detailBox p.hookLine {
     margin-top:21px;
-    margin-bottom:0;
+    margin-bottom:0px;
 }
 .bookDescription {
-    margin-top:10px;
+    margin-top:0px;
     clear:both;
 }
 

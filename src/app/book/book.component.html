@@ -2,7 +2,7 @@
     <div class="imageWrapper">
     <img [src]="bookdata.CoverArtLink == '/generic/cover/image' || bookdata.CoverArtLink === null ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : coverpath + bookdata.CoverArtLink">
     </div>
-    <h4>{{bookdata.TitleName}}</h4>
+    <h4 [innerHTML]="bookdata.TitleName"></h4>
     <div style="clear:both"></div>
 </div>
 

@@ -47,7 +47,10 @@
 </div>
 
 <div class="container scrollingBox" *ngIf="detail">
-    <img (click)="hideDetail()" class="backArrow" src="assets/images/leftArrow.png" alt="back arrow">
+    <div (click)="hideDetail()" class="backArrow">
+        <img src="assets/images/leftArrow.png" alt="back arrow">
+        <a href="javascript:void(0)">To Library</a>
+    </div>
     <ng-scrollbar>
 <div class="detailBox">
         <div class="bookInfo">
@@ -58,15 +61,15 @@
                 <div class="author">
                     <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : authorpath + bookdata.BioPhotoLink">
                 </div>
-                <div class="authorLink">{{bookdata.TitlePersona}}&nbsp;<span style="font-size:12px;text-decoration:underline;color:#1D76D8">
-                    <a href="javascript:void(0)" (click)="openModal(authorBio)">&raquo;bio</a></span></div>
-            <p class="hookLine detailSmall" [innerHTML]="bookdata.TitleHookLine"></p>
-            <p class="detailSmall">{{bookdata.LastUpdated | date:'longDate' }}</p>
+                <div class="authorLink">{{bookdata.TitlePersona}}&nbsp;
+                    <a class="bioLink" href="javascript:void(0)" (click)="openModal(authorBio)">&raquo;bio</a></div>
+            <p class="hookLine" [innerHTML]="bookdata.TitleHookLine"></p>
+            <p><span class="detailHeader">Release date: </span><span class="detailSmall">{{bookdata.LastUpdated | date:'longDate' }}</span></p>
             <div style="clear:both"></div>
         </div>
     <div style="clear:both"></div>
         <div class="bookDescription">
-            <p><span [innerHTML]="bookdata.TitleDescription"></span></p>
+            <p><span class="detailHeader">Description:</span><br/><span class="detailSmall" [innerHTML]="bookdata.TitleDescription"></span></p>
             <p><span class="detailHeader">Acknowledgement:</span><br/><span class="detailSmall" [innerHTML]="bookdata.Acknowledgment"></span>
             </p>
             <p><span class="detailHeader">Dedication:</span><br/><span class="detailSmall" [innerHTML]="bookdata.Dedication"></span></p>
