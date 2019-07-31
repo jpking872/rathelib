@@ -1,14 +1,13 @@
 import {Component, OnInit, ViewChild, ElementRef, AfterViewInit, TemplateRef} from '@angular/core';
-import { Observable } from 'rxjs';
+import {Observable, Subject, Subscription} from 'rxjs';
 import { MainService } from '../main.service';
 import { Book } from '../book';
 import { Search } from '../search';
 import { NgScrollbar } from 'ngx-scrollbar';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { Router, NavigationEnd } from '@angular/router';
 
 import { trigger, state, style, animate, transition } from '@angular/animations';
-
-declare var $: any;
 
 @Component({
   selector: 'app-library',
@@ -20,7 +19,7 @@ export class LibraryComponent implements OnInit, AfterViewInit {
 
   @ViewChild(NgScrollbar, {static: false}) scrollRef: NgScrollbar;
   @ViewChild('scrollingBox', {static: false}) scrollingBox: ElementRef;
-    public modalRef: BsModalRef;
+  public modalRef: BsModalRef;
 
   public params: Search;
   public books: Book[] = [];
@@ -32,6 +31,7 @@ export class LibraryComponent implements OnInit, AfterViewInit {
   public noResults = false;
   public bookdata: Book;
   public detail: boolean;
+  public detailId;
 
   public coverpath: string = 'https://rathe.app/portal/newdir/store-tank/cover-art/';
   public authorpath: string = 'https://rathe.app/portal/newdir/store-tank/bio-photo/';
@@ -40,11 +40,25 @@ export class LibraryComponent implements OnInit, AfterViewInit {
   selectedItems = [];
   dropdownSettings = {};
 
-  constructor(private mainService: MainService, private modalService: BsModalService) {
+    constructor(private mainService: MainService, private modalService: BsModalService, private router: Router) {
 
       this.size = 24;
       this.params = new Search('', 'false', [], 0, this.size);
       this.detail = false;
+
+      this.router = router;
+
+      const routerEvent = this.router.events.subscribe((val) => {
+          if (val instanceof NavigationEnd) {
+              let urlArray = val.url.split('/');
+              if (urlArray[1] === 'library') {
+                  this.detail = false;
+              } else if (urlArray[1] === 'detail') {
+                  this.searchById(urlArray[2]);
+              }
+              routerEvent.unsubscribe();
+          }
+      });
 
   }
 
@@ -96,15 +110,6 @@ export class LibraryComponent implements OnInit, AfterViewInit {
         });
     }
 
-    showDetail(book) {
-      this.bookdata = book;
-      this.detail = true;
-    }
-
-    hideDetail() {
-      this.detail = false;
-    }
-
     openModal(template: TemplateRef<any>) {
         this.modalRef = this.modalService.show(template);
     }
@@ -152,6 +157,8 @@ export class LibraryComponent implements OnInit, AfterViewInit {
       this.mainService.search(this.params).subscribe(
           data => {
 
+              console.log(data);
+
               if (data.length === 0) {
                   this.more = false;
               }
@@ -175,5 +182,13 @@ export class LibraryComponent implements OnInit, AfterViewInit {
           () => { console.log(); }
       );
   }
+
+  searchById(id)  {
+
+      this.mainService.searchById(id).subscribe(
+          data => { this.detail = true; this.bookdata = data; console.log(data); },
+          err => { },
+              () => { }
+    ); }
 
 }

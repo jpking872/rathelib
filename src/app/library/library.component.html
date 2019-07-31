@@ -32,13 +32,13 @@
         <div class="container" *ngIf="!loading">
             <div class="recentWrapper">
                 <h4>New and Featured Releases</h4>
-                <app-book [bookdata]="book" *ngFor="let book of featuredBooks" (click)="showDetail(book)"></app-book>
+                <app-book [bookdata]="book" *ngFor="let book of featuredBooks"></app-book>
             </div>
             <div style="clear:both"></div>
             <div class="libraryWrapper">
                 <h4>Library</h4>
                 <div class="infoText" *ngIf="noResults">No results found.</div>
-                <app-book [bookdata]="book" *ngFor="let book of books" (click)="showDetail(book)"></app-book>
+                <app-book [bookdata]="book" *ngFor="let book of books"></app-book>
                 <div style="clear:both"></div>
             </div>
         </div>
@@ -47,7 +47,7 @@
 </div>
 
 <div class="container scrollingBox" *ngIf="detail">
-    <div (click)="hideDetail()" class="backArrow">
+    <div routerLink="/library" class="backArrow">
         <img src="assets/images/leftArrow.png" alt="back arrow">
         <a href="javascript:void(0)">To Library</a>
     </div>
@@ -55,11 +55,11 @@
 <div class="detailBox">
         <div class="bookInfo">
             <div class="coverImage">
-            <img [src]="bookdata.CoverArtLink == '/generic/cover/image' || bookdata.CoverArtLink === null ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : coverpath + bookdata.CoverArtLink">
+            <img [src]="bookdata.CoverArtLink == '/generic/cover/image' || !bookdata.CoverArtLink ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : coverpath + bookdata.CoverArtLink">
             </div>
                 <h4 [innerHTML]="bookdata.TitleName"></h4>
                 <div class="author">
-                    <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' || bookdata.BioPhotoLink === null ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : authorpath + bookdata.BioPhotoLink">
+                    <img [src]="bookdata.BioPhotoLink == '/generic/bio/image' || !bookdata.BioPhotoLink ? 'https://rathe.app/portal/public/dashboard/images/no-profile.png' : authorpath + bookdata.BioPhotoLink">
                 </div>
                 <div class="authorLink">{{bookdata.TitlePersona}}&nbsp;
                     <a class="bioLink" href="javascript:void(0)" (click)="openModal(authorBio)">&raquo;bio</a></div>

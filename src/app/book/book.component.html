@@ -1,6 +1,6 @@
-<div class="book">
+<div class="book" routerLink="/detail/{{bookdata.FirebaseTitleID}}">
     <div class="imageWrapper">
-    <img [src]="bookdata.CoverArtLink == '/generic/cover/image' || bookdata.CoverArtLink === null ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : coverpath + bookdata.CoverArtLink">
+    <img [src]="bookdata.CoverArtLink == '/generic/cover/image' || !bookdata.CoverArtLink ? 'https://rathe.app/portal/public/dashboard/images/system-art.jpg' : coverpath + bookdata.CoverArtLink">
     </div>
     <h4 [innerHTML]="bookdata.TitleName"></h4>
     <div style="clear:both"></div>
