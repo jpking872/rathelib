@@ -1,4 +1,5 @@
 <?php
+
 $isTest = false;
 
 if (!$isTest) {
@@ -18,12 +19,13 @@ if (!$isTest) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 } else {
-    $con = mysqli_connect("localhost", "testerguy2", "tester", "rathe");
+    $con = mysqli_connect("localhost", "jking", "crosby87N", "rathe2");
     if (mysqli_connect_errno())
     {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 }
+
 
     $results = null;
     if (!$isTest) {
@@ -31,9 +33,11 @@ if (!$isTest) {
     }
 
     $sql = "SELECT * FROM `Bind_Title_Intake` WHERE `FirebaseTitleID` = '" . mysqli_real_escape_string($con, $id) . "'";
+
         $result = mysqli_query($con, $sql);
-        if ($row = mysqli_fetch_array($result)) {
-            $results = $row;
+
+        if (($row = mysqli_fetch_array($result)) !== false) {
+            $results = mb_convert_encoding($row, 'UTF-8', 'UTF-8');
         }
 
-echo json_encode($results);
+        echo json_encode($results);

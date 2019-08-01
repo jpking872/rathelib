@@ -35,10 +35,8 @@ export class MainService {
         }
       }
 
-
-
       let url = 'https://rathe.app/api/search.php';
-      // let url = 'http://local.hockeyapi.com/api/search';
+      // let url = 'http://api.kingjonathan.com/api/search';
       return this.http.post<Book[]>(url, body,  {
          headers: new HttpHeaders({
            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -49,16 +47,15 @@ export class MainService {
 
   searchById(id) {
 
-    return this.http.get<Book>
-    ('../assets/searchById.json');
+    //return this.http.get<Book>('../assets/searchById.json');
 
-    /*let url = 'https://rathe.app/api/searchById.php?bookid=' + id;
-    // let url = 'http://local.hockeyapi.com/api/searchById/' + id;
+    let url = 'https://rathe.app/api/searchById.php?bookid=' + id;
+    // let url = 'http://api.kingjonathan.com/api/searchById/' + id;
     return this.http.get<Book>(url,{
       headers: new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       })
-    });*/
+    });
 
   }
 
