@@ -64,7 +64,7 @@
                 <div class="authorLink">{{bookdata.TitlePersona}}&nbsp;
                     <a class="bioLink" href="javascript:void(0)" (click)="openModal(authorBio)">&raquo;bio</a></div>
             <p class="hookLine" [innerHTML]="bookdata.TitleHookLine"></p>
-            <p><span class="detailHeader">Release date: </span><span class="detailSmall">{{bookdata.LastUpdated | date:'longDate' }}</span></p>
+            <p><span class="detailHeader">Release date: </span><span class="detailSmall">{{bookdata.AddDate | date:'longDate' }}</span></p>
             <div style="clear:both"></div>
         </div>
     <div style="clear:both"></div>
