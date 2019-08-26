@@ -101,7 +101,7 @@ if (!$isTest) {
 
         } elseif (!$magic && !$keywords) {
             $stmt = $dbh->prepare("SELECT $selectFields FROM `Bind_Title_Intake` ORDER BY `AddDate` DESC LIMIT :start, :size");
-            $stmt->bindParam(':start', $start, PDO::PARAM_INT);
+            $stmt->bindParam(':start', $startIndex, PDO::PARAM_INT);
             $stmt->bindParam(':size', $size, PDO::PARAM_INT);
             $stmt->execute();
             $results = $stmt->fetchAll();
@@ -110,13 +110,13 @@ if (!$isTest) {
             if ($keywords) {
                 $aKeywords = preg_split('/[\ \,]+/', $keywords);
                 for ($i = 0; $i < count($aKeywords); $i++) {
-                    $tmpKeyword = $aKeywords[$i];
+                    $tmpKeyword = str_replace(" ", "", $aKeywords[$i]);
                     $sql = "SELECT `ID` FROM `Bind_Title_Intake` WHERE ";
-                    $sql .= "`TitleKeywords` LIKE concat('%', :tmpKeyword1, '%') OR ";
-                    $sql .= "`TitleHookLine` LIKE concat('%', :tmpKeyword2, '%') OR ";
-                    $sql .= "`TitleDescription` LIKE concat('%', :tmpKeyword3, '%') OR ";
-                    $sql .= "`TitleName` LIKE concat('%', :tmpKeyword4, '%') OR ";
-                    $sql .= "`TitlePersona` LIKE concat('%', :tmpKeyword5, '%')";
+                    $sql .= "REPLACE(`TitleKeywords`, ' ', '') LIKE concat('%', :tmpKeyword1, '%') OR ";
+                    $sql .= "REPLACE(`TitleHookLine`, ' ', '') LIKE concat('%', :tmpKeyword2, '%') OR ";
+                    $sql .= "REPLACE(`TitleDescription`, ' ', '') LIKE concat('%', :tmpKeyword3, '%') OR ";
+                    $sql .= "REPLACE(`TitleName`, ' ', '') LIKE concat('%', :tmpKeyword4, '%') OR ";
+                    $sql .= "REPLACE(`TitlePersona`, ' ', '') LIKE concat('%', :tmpKeyword5, '%')";
 
                     $stmt = $dbh->prepare($sql);
                     $stmt->bindParam(':tmpKeyword1', $tmpKeyword, PDO::PARAM_STR);
