@@ -42,7 +42,7 @@ export class LibraryComponent implements OnInit, AfterViewInit {
 
   constructor(private mainService: MainService, private modalService: BsModalService) {
 
-      this.size = 24;
+      this.size = 100;
       this.params = new Search('', 'false', [], 0, this.size);
       this.detail = false;
 
@@ -90,7 +90,6 @@ export class LibraryComponent implements OnInit, AfterViewInit {
             let pos = elem.scrollTop + elem.clientHeight;
             let max = elem.scrollHeight;
             if (pos >= max && this.more === true) {
-                console.log('get more');
                 this.getMore();
             }
         });
